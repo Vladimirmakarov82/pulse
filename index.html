@@ -16,12 +16,11 @@
 @keyframes chFadeOut{0%{opacity:1}100%{opacity:0;pointer-events:none}}
 @keyframes chQuickSlideBottom{0%{opacity:0;transform:translateY(60px)}100%{opacity:1;transform:translateY(0)}}
 #pulse-hero{position:fixed;top:0;left:0;right:0;bottom:0;z-index:20;background:#fafafa;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:auto}
-#pulse-hero.fade-out{animation:chFadeOut 0.6s ease forwards;pointer-events:none}
+#pulse-hero.fade-out{animation:chFadeOut 0.8s ease-out forwards;pointer-events:none}
 #pulse-hero.gone{display:none}
 #pulse-arrow{position:absolute;bottom:52px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;opacity:0;transition:opacity 0.75s ease-in-out}
 #pulse-arrow.visible{opacity:1}
-#pulse-main-content{opacity:0;transition:opacity 0.5s ease}
-#pulse-main-content.visible{opacity:1}
+#pulse-main-content{opacity:1}
 @keyframes pulseLogoIn{0%{transform:translateY(1000px)}100%{transform:translateY(0)}}
 @keyframes pulseArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 @keyframes pulseSlideUp{0%{opacity:0;transform:translateY(1000px)}to{opacity:1;transform:translateY(0)}}
@@ -109,16 +108,12 @@ H.useEffect(()=>{
 
     // Анимируем уход hero
     hero.classList.add('fade-out');
-    const mc2=document.getElementById('pulse-main-content');if(mc2)mc2.classList.add('visible');
-
     setTimeout(()=>{
       hero.classList.add('gone');
       // Разблокируем скролл и сбрасываем позицию наверх
       document.body.style.overflow='';
       window.scrollTo({top:0,behavior:'instant'});
       // Показываем основной контент
-      const mc=document.getElementById('pulse-main-content');
-      if(mc)mc.classList.add('visible');
     },900);
   };
 
