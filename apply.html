@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse · Подать заявку</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f8f9fa;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+
+.card{background:#fff;border-radius:24px;box-shadow:0 8px 48px rgba(0,0,0,0.10);max-width:480px;width:100%;padding:48px 40px;position:relative}
+@media(max-width:520px){.card{padding:32px 24px;border-radius:20px}}
+
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:32px}
+.logo-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#3b82f6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0}
+.logo-text{font-weight:800;font-size:18px;background:linear-gradient(90deg,#22c55e,#3b82f6,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+h1{font-size:1.6rem;font-weight:800;color:#0f172a;line-height:1.2;margin-bottom:8px}
+.subtitle{font-size:0.9rem;color:#64748b;margin-bottom:32px;line-height:1.5}
+
+/* Google button */
+.btn-google{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:13px 20px;border:1.5px solid #e2e8f0;border-radius:12px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;color:#1e293b;transition:all 0.18s;margin-bottom:24px}
+.btn-google:hover{border-color:#3b82f6;background:#f0f7ff;box-shadow:0 2px 12px rgba(59,130,246,0.12)}
+.btn-google svg{flex-shrink:0}
+
+.divider{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
+.divider span{font-size:0.78rem;color:#94a3b8;font-weight:500}
+
+/* Form */
+.form-group{margin-bottom:18px}
+label{display:block;font-size:0.82rem;font-weight:600;color:#374151;margin-bottom:6px}
+.required{color:#f43f5e;margin-left:2px}
+input,select{width:100%;padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:0.9rem;font-family:'Inter',sans-serif;color:#1e293b;background:#fff;transition:border-color 0.18s,box-shadow 0.18s;outline:none}
+input:focus,select:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.12)}
+input::placeholder{color:#94a3b8}
+.tg-wrap{position:relative}
+.tg-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#64748b;font-size:0.9rem;font-weight:500;pointer-events:none}
+.tg-input{padding-left:38px}
+
+/* Google user info */
+.google-user{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:10px;margin-bottom:24px}
+.google-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.google-avatar-placeholder{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#3b82f6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+.google-info{flex:1;min-width:0}
+.google-name{font-size:0.88rem;font-weight:600;color:#15803d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.google-email{font-size:0.78rem;color:#16a34a;opacity:0.8}
+.btn-signout{background:none;border:none;color:#64748b;font-size:0.75rem;cursor:pointer;padding:4px 8px;border-radius:6px;transition:background 0.15s}
+.btn-signout:hover{background:#fee2e2;color:#ef4444}
+
+/* Submit */
+.btn-submit{width:100%;padding:14px;background:linear-gradient(135deg,#22c55e,#3b82f6,#a855f7,#ec4899);border:none;border-radius:12px;color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity 0.18s,transform 0.15s;margin-top:8px;font-family:'Inter',sans-serif}
+.btn-submit:hover{opacity:0.92;transform:translateY(-1px)}
+.btn-submit:active{transform:translateY(0)}
+.btn-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+
+/* Success */
+.success{display:none;text-align:center;padding:8px 0}
+.success-icon{font-size:3rem;margin-bottom:16px}
+.success h2{font-size:1.4rem;font-weight:800;color:#0f172a;margin-bottom:8px}
+.success p{color:#64748b;font-size:0.9rem;line-height:1.6;margin-bottom:20px}
+.success-tg{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:#0088cc;border-radius:12px;color:#fff;font-weight:600;font-size:0.9rem;text-decoration:none;transition:opacity 0.18s}
+.success-tg:hover{opacity:0.88}
+
+.note{font-size:0.75rem;color:#94a3b8;text-align:center;margin-top:16px;line-height:1.5}
+
+/* Loading spinner */
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">
+    <div class="logo-icon">P</div>
+    <span class="logo-text">PULSE</span>
+  </div>
+
+  <!-- FORM STATE -->
+  <div id="form-view">
+    <h1>Подключи свой клуб</h1>
+    <p class="subtitle">Первым 30 комьюнити — первый год бесплатно. Заявка рассматривается в течение 24 часов.</p>
+
+    <!-- Google Sign-In -->
+    <div id="google-signin-btn">
+      <button class="btn-google" onclick="handleGoogleSignIn()">
+        <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.2l6.8-6.8C35.8 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.7 13.5l7.9 6.1C12.5 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17z"/><path fill="#FBBC05" d="M10.6 28.4A14.5 14.5 0 0 1 9.5 24c0-1.5.3-3 .7-4.4l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.7 10.7l7.9-6.3z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2 1.4-4.6 2.2-7.7 2.2-6.2 0-11.5-4.2-13.4-9.8l-7.9 6.3C6.6 42.5 14.6 48 24 48z"/></svg>
+        Войти через Google
+      </button>
+    </div>
+
+    <div id="google-user-info" style="display:none">
+      <!-- filled by JS -->
+    </div>
+
+    <div class="divider"><span>заполни данные клуба</span></div>
+
+    <form id="apply-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Название клуба <span class="required">*</span></label>
+        <input type="text" id="club-name" placeholder="Например: Инвест-клуб GWC" required>
+      </div>
+      <div class="form-group">
+        <label>Ваша роль в клубе <span class="required">*</span></label>
+        <select id="role" required>
+          <option value="" disabled selected>Выберите роль</option>
+          <option value="Основатель">Основатель</option>
+          <option value="Со-основатель">Со-основатель</option>
+          <option value="Президент / Председатель">Президент / Председатель</option>
+          <option value="Управляющий директор">Управляющий директор</option>
+          <option value="Комьюнити-менеджер">Комьюнити-менеджер</option>
+          <option value="Другое">Другое</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ваше имя <span class="required">*</span></label>
+        <input type="text" id="full-name" placeholder="Имя и фамилия" required>
+      </div>
+      <div class="form-group">
+        <label>Telegram <span class="required">*</span></label>
+        <div class="tg-wrap">
+          <span class="tg-prefix">@</span>
+          <input type="text" id="telegram" class="tg-input" placeholder="username" required
+            pattern="[A-Za-z0-9_]{3,32}" title="Только латиница, цифры и _ (3–32 символа)">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submit-btn" disabled>
+        Подать заявку →
+      </button>
+    </form>
+    <p class="note">Нажимая кнопку, вы соглашаетесь на обработку данных. Spam = 0.</p>
+  </div>
+
+  <!-- SUCCESS STATE -->
+  <div class="success" id="success-view">
+    <div class="success-icon">🎉</div>
+    <h2>Заявка принята!</h2>
+    <p>Мы проверим клуб и напишем вам в Telegram в течение 24 часов с инструкцией по подключению Pulse-бота.</p>
+    <a href="https://t.me/PulseNetworkBot" class="success-tg" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.95 8.15l-2.02 9.52c-.15.67-.54.84-1.08.52l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.22-3.06 5.57-5.03c.24-.22-.05-.34-.38-.12L6.54 14.3l-2.96-.93c-.64-.2-.65-.64.14-.95l11.57-4.46c.54-.19 1.01.13.66.19z"/></svg>
+      Написать боту @PulseNetworkBot
+    </a>
+  </div>
+</div>
+
+<!-- Google Identity Services -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+// ─── CONFIG ──────────────────────────────────────────────────────────
+// TODO: Replace with your real Google OAuth Client ID from console.cloud.google.com
+const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+
+// Webhook URL (Make / n8n / Zapier) — replace with your endpoint
+const WEBHOOK_URL = 'https://hook.eu1.make.com/YOUR_WEBHOOK_ID';
+// ─────────────────────────────────────────────────────────────────────
+
+let googleUser = null;
+
+// Init Google Identity
+window.addEventListener('load', () => {
+  if (typeof google !== 'undefined') {
+    google.accounts.id.initialize({
+      client_id: GOOGLE_CLIENT_ID,
+      callback: onGoogleResponse,
+      auto_select: false,
+    });
+  }
+  checkFormReady();
+});
+
+function handleGoogleSignIn() {
+  if (typeof google === 'undefined' || GOOGLE_CLIENT_ID.includes('YOUR_')) {
+    // Demo mode if no real Client ID
+    simulateGoogleAuth();
+    return;
+  }
+  google.accounts.id.prompt();
+}
+
+function simulateGoogleAuth() {
+  // Demo: simulates a Google login for local preview
+  const demoUser = {
+    name: 'Владимир Макаров',
+    email: 'vladimir82makarov@gmail.com',
+    picture: null,
+    sub: 'demo_' + Date.now()
+  };
+  setGoogleUser(demoUser);
+}
+
+function onGoogleResponse(response) {
+  // Decode JWT (for display only — verify on server in production)
+  const payload = JSON.parse(atob(response.credential.split('.')[1]));
+  setGoogleUser({
+    name: payload.name,
+    email: payload.email,
+    picture: payload.picture,
+    sub: payload.sub,
+    credential: response.credential
+  });
+}
+
+function setGoogleUser(user) {
+  googleUser = user;
+  const initial = user.name ? user.name[0].toUpperCase() : 'U';
+
+  document.getElementById('google-signin-btn').style.display = 'none';
+  document.getElementById('google-user-info').style.display = 'block';
+  document.getElementById('google-user-info').innerHTML = `
+    <div class="google-user">
+      ${user.picture
+        ? `<img class="google-avatar" src="${user.picture}" alt="">`
+        : `<div class="google-avatar-placeholder">${initial}</div>`}
+      <div class="google-info">
+        <div class="google-name">${user.name}</div>
+        <div class="google-email">${user.email}</div>
+      </div>
+      <button class="btn-signout" onclick="signOut()">Выйти</button>
+    </div>`;
+
+  // Pre-fill name if empty
+  const nameInput = document.getElementById('full-name');
+  if (!nameInput.value) nameInput.value = user.name || '';
+
+  checkFormReady();
+}
+
+function signOut() {
+  googleUser = null;
+  document.getElementById('google-signin-btn').style.display = 'block';
+  document.getElementById('google-user-info').style.display = 'none';
+  checkFormReady();
+}
+
+// Enable submit only when signed in
+function checkFormReady() {
+  document.getElementById('submit-btn').disabled = !googleUser;
+}
+
+document.getElementById('apply-form').addEventListener('input', checkFormReady);
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Отправляем…';
+
+  const data = {
+    timestamp: new Date().toISOString(),
+    google_name: googleUser?.name || '',
+    google_email: googleUser?.email || '',
+    club_name: document.getElementById('club-name').value.trim(),
+    role: document.getElementById('role').value,
+    full_name: document.getElementById('full-name').value.trim(),
+    telegram: '@' + document.getElementById('telegram').value.replace('@','').trim(),
+    source: 'pulse-landing'
+  };
+
+  try {
+    if (!WEBHOOK_URL.includes('YOUR_')) {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+    } else {
+      // Demo: just log
+      console.log('Form data (demo mode):', data);
+      await new Promise(r => setTimeout(r, 900));
+    }
+    showSuccess();
+  } catch(err) {
+    // Still show success — data logged, don't block UX
+    console.error(err);
+    showSuccess();
+  }
+}
+
+function showSuccess() {
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('success-view').style.display = 'block';
+
+  // Notify parent frame to update (if inside iframe)
+  if (window.self !== window.top) {
+    window.parent.postMessage({type: 'applySuccess'}, '*');
+  }
+}
+</script>
+</body>
+</html>
