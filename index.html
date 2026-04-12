@@ -13,6 +13,15 @@
 *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{font-family:Manrope,system-ui,-apple-system,sans-serif;background:#fafafa;color:#111;overflow-x:hidden;-webkit-overflow-scrolling:touch;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img{max-width:100%;display:block}button{cursor:pointer;font-family:inherit;border:none;outline:none}a{text-decoration:none;color:inherit}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px) translateZ(0)}to{opacity:1;transform:translateY(0) translateZ(0)}}@keyframes fadeInScale{0%{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}@keyframes pulse-glow{0%,to{opacity:1}50%{opacity:.4}}@keyframes lineIn{0%{opacity:0;transform:translateY(4px) translateZ(0)}to{opacity:1;transform:translateY(0) translateZ(0)}}@keyframes blink{0%,to{opacity:1}50%{opacity:.3}}@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}to{background-position:0% 50%}}@keyframes cardFloat{0%,to{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes arrowBounce{0%,to{transform:translateY(0);opacity:1}40%{transform:translateY(12px);opacity:.7}60%{transform:translateY(12px);opacity:.7}}
 @keyframes pulseLogoIn{0%{transform:translateY(1000px)}100%{transform:translateY(0)}}
 @keyframes pulseArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+@keyframes chFadeOut{0%{opacity:1}100%{opacity:0}}
+@keyframes chQuickSlideBottom{0%{opacity:0;transform:translateY(60px)}100%{opacity:1;transform:translateY(0)}}
+#pulse-hero{position:fixed;top:0;left:0;right:0;bottom:0;z-index:20;background:#fafafa;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:auto}
+#pulse-hero.fade-out{animation:chFadeOut 0.5s ease forwards;pointer-events:none}
+#pulse-hero.gone{display:none}
+#pulse-arrow{position:absolute;bottom:52px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;opacity:0;transition:opacity 0.75s ease-in-out}
+#pulse-arrow.visible{opacity:1}
+@keyframes pulseLogoIn{0%{transform:translateY(1000px)}100%{transform:translateY(0)}}
+@keyframes pulseArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 @keyframes pulseSlideUp{0%{opacity:0;transform:translateY(1000px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulseArrowFloat{0%,to{transform:translateY(0)}50%{transform:translateY(10px)}}
 .grad-text{background:linear-gradient(135deg,#22c55e,#3b82f6,#a855f7 60%,#ec4899,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.grad-text-animate{background:linear-gradient(270deg,#22c55e,#3b82f6,#a855f7,#ec4899,#f97316,#22c55e);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 6s ease infinite}.fade-in{animation:fadeIn .6s ease forwards}@media (max-width: 767px){a[href^=mailto]{word-break:break-all;white-space:normal}}
@@ -74,31 +83,34 @@ Error generating stack: `+o.message+`
 {icon:"match",html:'Совпадение <span style="color:#22c55e;font-weight:700;font-family:monospace">88%</span> — личные контакты в ОАЭ, КСА<div style="height:4px;background:#e8eaed;border-radius:99px;overflow:hidden;margin-top:6px"><div style="width:88%;height:100%;background:linear-gradient(90deg,#22c55e,#3b82f6);border-radius:99px"></div></div>'},
 {icon:"done",html:'<span style="color:#22c55e;font-weight:700">✓ Синк запущен</span> · <b>Алексей Б.</b> ↔ <b>Андрей В.</b> <span style="color:#888;font-size:0.85em">· недвижимость × ОАЭ</span>'}
 ],ep=[{icon:"search",html:"Scanning <b>847 profiles</b> across the network..."},{icon:"filter",html:'@dmitriy_m looking for <b>CTO for fintech startup</b> · budget <span style="font-family:monospace;font-weight:700;color:#a855f7">$120K</span>'},{icon:"found",html:'Found <span style="font-family:monospace;font-weight:700;color:#22c55e">45</span> potential candidates'},{icon:"filter",html:"Filtering by values, experience, geography..."},{icon:"match",html:"Top 3 for @dmitriy_m:",tags:["91% · Pavel S.","87% · Ekaterina K.","84% · Andrey V."]},{icon:"done",html:'Sync sent · <b>Pavel S.</b> ↔ <b>Dmitriy M.</b> <span style="color:#888">· fintech × grants</span>'},{icon:"search",html:"Scanning Elena K.'s requests across the network..."},{icon:"found",html:'Club 500+ investors — <span style="font-family:monospace;font-weight:700;color:#22c55e">95%</span> match with Viktor I.'},{icon:"done",html:'Sync ready · <b>Elena</b> ↔ <b>Viktor</b> <span style="color:#888">· invest club × forum</span>'}],tp=[{name:"Владимир",role:"Серийный предприниматель · AI, нетворкинг, Web3",geo:"Москва · Бали · Кейптаун",stat:"привлёк $5M+",request:"Токенизация активов, партнёры в девелопменте",g:"linear-gradient(135deg,#22c55e,#3b82f6)"},{name:"Анна",role:"Системный архитектор · рестораны",geo:"Бали · Москва",stat:"25 пекарен → экзит",request:"Масштабирование ресторанного бизнеса",g:"linear-gradient(135deg,#3b82f6,#a855f7)"},{name:"Александр",role:"Коммерческая недвижимость · сделки от $4M",geo:"Москва",stat:"20 лет, объекты от 5000 м²",request:"Инвесторы в коммерческую недвижимость",g:"linear-gradient(135deg,#a855f7,#ec4899)"},{name:"Евгений",role:"Бали изнутри · AI-агенты",geo:"Индонезия (15 лет)",stat:"BaliForum — крупнейшее сообщество",request:"Партнёры для AI-проектов",g:"linear-gradient(135deg,#ec4899,#f97316)"},{name:"Виктор",role:"Инвест-клуб GWC · Евразийский форум",geo:"Москва",stat:"евразийский инвестиционный форум",request:"Smart money и гибридные сделки",g:"linear-gradient(135deg,#22c55e,#a855f7)"},{name:"Андрей",role:"Дипломат 10+ лет MENA · строительство",geo:"Москва · Дубровник",stat:"личные контакты ОАЭ, КСА, Иран, Оман",request:"Новые знакомства",g:"linear-gradient(135deg,#3b82f6,#22c55e)"},{name:"Ольга",role:"Юрист 25 лет · штат 30 юристов",geo:"Омск · Москва",stat:"споры с ФАС и Казначейством",request:"Партнёры для прибыльных проектов",g:"linear-gradient(135deg,#a855f7,#3b82f6)"},{name:"Екатерина",role:"Кибербезопасность 20 лет · MENA",geo:"Москва · ОАЭ",stat:"МТС, ЦБ, PwC · 100 000+ участников",request:"Партнёры в Саудовской Аравии",g:"linear-gradient(135deg,#ec4899,#a855f7)"},{name:"Елена",role:"Инвест-клуб 500+ инвесторов",geo:"Москва",stat:"клуб 500+ за 3 года",request:"Проекты для инвесторов",g:"linear-gradient(135deg,#f97316,#ec4899)"},{name:"Константин",role:"Гранты для IT · Роснано",geo:"Москва",stat:"Сколково, Бортника, Роснано",request:"Tech-компании, которым нужны гранты",g:"linear-gradient(135deg,#22c55e,#3b82f6)"},{name:"Максим",role:"Стартапы AR/MedTech · Руссофт",geo:"СПб · Москва · ОАЭ",stat:"Glazar (AR для строительства)",request:"Инвесторы в стартапы",g:"linear-gradient(135deg,#3b82f6,#ec4899)"},{name:"Михаил",role:"Финтех · международные стартапы",geo:"Москва · Ирландия · Швейцария",stat:"стартапы в 3 юрисдикциях",request:"Партнёры для международного финтеха",g:"linear-gradient(135deg,#a855f7,#f97316)"}];function Sc(e=768){const[t,n]=H.useState(typeof window<"u"?window.innerWidth<e:!1);return H.useEffect(()=>{const r=()=>n(window.innerWidth<e);return window.addEventListener("resize",r),()=>window.removeEventListener("resize",r)},[e]),t}function Cc(){const e=H.useRef(null),[t,n]=H.useState(!1);return H.useEffect(()=>{const r=e.current;if(!r)return;const l=new IntersectionObserver(([o])=>{o.isIntersecting&&(n(!0),l.disconnect())},{threshold:.15,rootMargin:"0px 0px -30px 0px"});return l.observe(r),()=>l.disconnect()},[]),{ref:e,visible:t}}function It({children:e,d:t=0,style:n={}}){const{ref:r,visible:l}=Cc();return a.jsx("div",{ref:r,style:{opacity:l?1:0,transform:l?"translateY(0) translateZ(0)":"translateY(8px) translateZ(0)",transition:`opacity 0.45s ease-out ${t}s, transform 0.45s ease-out ${t}s`,willChange:l?"auto":"opacity, transform",...n},children:e})}function Ec({size:e=32}){return a.jsxs("svg",{width:e,height:e,viewBox:"0 0 100 100",style:{flexShrink:0},children:[a.jsx("defs",{children:a.jsxs("linearGradient",{id:"plg",x1:"0%",y1:"0%",x2:"100%",y2:"100%",children:[a.jsx("stop",{offset:"0%",stopColor:"#22c55e"}),a.jsx("stop",{offset:"100%",stopColor:"#3b82f6"})]})}),a.jsx("circle",{cx:"50",cy:"50",r:"50",fill:"url(#plg)"}),a.jsx("text",{x:"50",y:"68",fontFamily:"Manrope,Arial,sans-serif",fontWeight:"800",fontSize:"54",fill:"white",textAnchor:"middle",children:"P"})]})}function np({lang:e,setLang:t,setPage:n,setShowFounders:r}){const l=xn[e],[o,i]=H.useState(!1),u=Sc(),s=f=>{if(i(!1),f==="founders"){r(!0);return}const h=document.querySelector(f);h&&h.scrollIntoView({behavior:"smooth"})};return a.jsxs(a.Fragment,{children:[a.jsxs("nav",{style:{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(250,250,250,0.9)",backdropFilter:"blur(20px)",borderBottom:`1px solid ${ir}`,height:60,display:"flex",alignItems:"center",padding:"0 24px",gap:16},children:[a.jsxs("button",{onClick:()=>n("home"),style:{display:"flex",alignItems:"center",gap:10,background:"none",border:"none",cursor:"pointer",flexShrink:0},children:[a.jsx(Ec,{size:30}),a.jsx("span",{style:{fontSize:"1rem",fontWeight:900,letterSpacing:"0.06em",background:Xe,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"},children:"PULSE"})]}),!u&&a.jsx("div",{style:{display:"flex",alignItems:"center",gap:2,marginLeft:8,flex:1},children:l.navLinks.map(f=>a.jsx("button",{onClick:()=>s(f.anchor),style:{background:"none",border:"none",cursor:"pointer",fontSize:"0.85rem",fontWeight:600,color:Ye,padding:"7px 12px",borderRadius:8,transition:"color 0.2s, background 0.2s"},onMouseEnter:h=>{const g=h.currentTarget;g.style.color=st,g.style.background=hl},onMouseLeave:h=>{const g=h.currentTarget;g.style.color=Ye,g.style.background="none"},children:f.label},f.label))}),a.jsxs("div",{style:{marginLeft:"auto",display:"flex",alignItems:"center",gap:10},children:[a.jsx("div",{style:{display:"flex",alignItems:"center",gap:2,background:hl,borderRadius:8,padding:3},children:["ru","en"].map(f=>a.jsx("button",{onClick:()=>t(f),style:{background:e===f?ml:"none",border:"none",cursor:"pointer",padding:"4px 11px",borderRadius:6,fontSize:"0.78rem",fontWeight:700,color:e===f?st:ur,transition:"all 0.2s",boxShadow:e===f?"0 1px 3px rgba(0,0,0,0.08)":"none"},children:f.toUpperCase()},f))}),!u&&a.jsx("button",{onClick:()=>s("#cta-section"),style:{background:Xe,color:"#fff",border:"none",cursor:"pointer",padding:"8px 20px",borderRadius:100,fontSize:"0.85rem",fontWeight:700,boxShadow:"0 2px 14px rgba(168,85,247,0.25)",transition:"transform 0.2s, box-shadow 0.2s",whiteSpace:"nowrap"},onMouseEnter:f=>{const h=f.currentTarget;h.style.transform="scale(1.03)",h.style.boxShadow="0 4px 22px rgba(168,85,247,0.4)"},onMouseLeave:f=>{const h=f.currentTarget;h.style.transform="scale(1)",h.style.boxShadow="0 2px 14px rgba(168,85,247,0.25)"},children:l.cta}),u&&a.jsx("button",{onClick:()=>i(!o),style:{background:"none",border:"none",cursor:"pointer",padding:6,color:st},children:a.jsx("svg",{width:"22",height:"22",viewBox:"0 0 22 22",fill:"none",children:o?a.jsx("path",{d:"M4 4L18 18M18 4L4 18",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round"}):a.jsx("path",{d:"M3 6h16M3 11h16M3 16h16",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round"})})})]})]}),u&&o&&a.jsxs("div",{style:{position:"fixed",top:60,left:0,right:0,bottom:0,zIndex:99,background:"rgba(250,250,250,0.97)",backdropFilter:"blur(20px)",display:"flex",flexDirection:"column",padding:"24px 24px",gap:4},children:[l.navLinks.map(f=>a.jsx("button",{onClick:()=>s(f.anchor),style:{background:"none",border:"none",cursor:"pointer",fontSize:"1.1rem",fontWeight:700,color:st,padding:"16px 0",textAlign:"left",borderBottom:`1px solid ${ir}`},children:f.label},f.label)),a.jsx("button",{onClick:()=>{i(!1),s("#cta-section")},style:{marginTop:24,background:Xe,color:"#fff",border:"none",cursor:"pointer",padding:"14px 24px",borderRadius:100,fontSize:"1rem",fontWeight:700},children:l.cta})]})]})}function rp({lang:e,isMobile:t,setShowFounders:sf}){
-const[screen,setScreen]=H.useState(0); // 0=PULSE, 1=content, 2=gone
-const[arrowVis,setArrowVis]=H.useState(false);
-const busy=H.useRef(false);
-
-const goNext=H.useCallback(()=>{
-  if(busy.current||screen>=1)return;
-  busy.current=true;
-  setScreen(1);
-  setTimeout(()=>{
-    setScreen(2);
-    window.scrollTo({top:0,behavior:'instant'});
-  },700);
-},[screen]);
-
 H.useEffect(()=>{
-  const t1=setTimeout(()=>setArrowVis(true),900);
-  const onWheel=ev=>{if(ev.deltaY>10)goNext();};
-  const onKey=ev=>{if(['ArrowDown','PageDown',' '].includes(ev.key))goNext();};
+  const hero=document.getElementById('pulse-hero');
+  const arrow=document.getElementById('pulse-arrow');
+  if(!hero)return;
+
+  // Стрелка появляется через 0.9s
+  const t1=setTimeout(()=>{ if(arrow)arrow.classList.add('visible'); },900);
+
+  let done=false;
+  const leave=()=>{
+    if(done)return;
+    done=true;
+    hero.classList.add('fade-out');
+    setTimeout(()=>{ hero.classList.add('gone'); },500);
+  };
+
+  const onWheel=ev=>{if(ev.deltaY>5)leave();};
+  const onKey=ev=>{if(['ArrowDown','PageDown',' '].includes(ev.key)){ev.preventDefault();leave();}};
   let ty=0;
   const onTS=ev=>{ty=ev.touches[0].clientY;};
-  const onTE=ev=>{if(ty-ev.changedTouches[0].clientY>30)goNext();};
+  const onTE=ev=>{if(ty-ev.changedTouches[0].clientY>30)leave();};
+
   window.addEventListener('wheel',onWheel,{passive:true});
   window.addEventListener('keydown',onKey);
   window.addEventListener('touchstart',onTS,{passive:true});
   window.addEventListener('touchend',onTE,{passive:true});
+  if(arrow)arrow.addEventListener('click',leave);
+
   return()=>{
     clearTimeout(t1);
     window.removeEventListener('wheel',onWheel);
@@ -106,80 +118,38 @@ H.useEffect(()=>{
     window.removeEventListener('touchstart',onTS);
     window.removeEventListener('touchend',onTE);
   };
-},[goNext]);
-
-if(screen===2)return null;
+},[]);
 
 const grad={background:Xe,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'};
 
-return a.jsxs('div',{style:{
-  position:'fixed',top:0,left:0,right:0,bottom:0,
-  zIndex:20,overflow:'hidden',
-},children:[
+return a.jsxs('div',{id:'pulse-hero',children:[
+  a.jsx('div',{style:{position:'absolute',inset:0,pointerEvents:'none',background:'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(59,130,246,0.05) 0%, rgba(168,85,247,0.03) 60%, transparent 80%)'}}),
 
-  // СЛОЙ 1: lp контент — под PULSE, появляется при переходе
-  a.jsx('div',{style:{
-    position:'absolute',inset:0,
-    opacity:screen===1?1:0,
-    transition:'opacity 0.65s ease',
-    overflow:'hidden',
-  },children:
-    a.jsx('div',{style:{width:'100%',height:'100%',overflowY:'auto',background:Il},children:
-      a.jsx(lp,{lang:e,isMobile:t})
-    })
-  }),
+  a.jsx('h1',{style:{
+    fontSize:t?'min(24vw,5.5rem)':'min(18vw,14rem)',
+    fontWeight:900,letterSpacing:'-0.03em',lineHeight:1,
+    ...grad,
+    animation:'pulseLogoIn 1.25s ease-in-out 0s forwards',
+    userSelect:'none',
+  },children:'PULSE'}),
 
-  // СЛОЙ 0: PULSE — поверх, исчезает при переходе
-  a.jsxs('div',{style:{
-    position:'absolute',inset:0,
-    background:Il,
-    display:'flex',flexDirection:'column',
-    alignItems:'center',justifyContent:'center',
-    opacity:screen===0?1:0,
-    transition:'opacity 0.65s ease',
-    pointerEvents:screen===0?'auto':'none',
-  },children:[
-    a.jsx('div',{style:{position:'absolute',inset:0,pointerEvents:'none',
-      background:'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(59,130,246,0.05) 0%, rgba(168,85,247,0.03) 60%, transparent 80%)'}}),
-    a.jsx('h1',{style:{
-      fontSize:t?'min(24vw,5.5rem)':'min(18vw,14rem)',
-      fontWeight:900,letterSpacing:'-0.03em',lineHeight:1,
-      ...grad,
-      animation:'pulseLogoIn 1.25s ease-in-out 0s forwards',
-      userSelect:'none',
-    },children:'PULSE'}),
-    a.jsxs('div',{
-      onClick:goNext,
-      style:{
-        position:'absolute',bottom:t?44:56,left:0,right:0,
-        display:'flex',flexDirection:'column',alignItems:'center',gap:8,
-        cursor:'pointer',
-        opacity:arrowVis?1:0,
-        transition:'opacity 0.75s ease-in-out',
-      },
+  a.jsxs('div',{id:'pulse-arrow',children:[
+    a.jsxs('svg',{width:t?28:34,height:t?28:34,viewBox:'0 0 40 40',fill:'none',
+      style:{animation:'pulseArrowBounce 1.6s ease-in-out infinite'},
       children:[
-        a.jsxs('svg',{width:t?28:34,height:t?28:34,viewBox:'0 0 40 40',fill:'none',
-          style:{animation:'pulseArrowBounce 1.6s ease-in-out infinite'},
-          children:[
-            a.jsx('defs',{children:a.jsxs('linearGradient',{id:'arrG',x1:'4',y1:'4',x2:'36',y2:'36',gradientUnits:'userSpaceOnUse',children:[
-              a.jsx('stop',{offset:'0%',stopColor:'#22c55e'}),
-              a.jsx('stop',{offset:'50%',stopColor:'#a855f7'}),
-              a.jsx('stop',{offset:'100%',stopColor:'#f97316'}),
-            ]})}),
-            a.jsx('path',{d:'M20 6 L20 32 M8 22 L20 34 L32 22',stroke:'url(#arrG)',strokeWidth:'2.8',strokeLinecap:'round',strokeLinejoin:'round'}),
-          ]
-        }),
-        a.jsx('span',{style:{
-          fontSize:'0.65rem',fontWeight:700,letterSpacing:'0.12em',
-          color:'rgba(0,0,0,0.3)',textTransform:'uppercase',
-          opacity:arrowVis?1:0,
-          transform:arrowVis?'translateY(0)':'translateY(12px)',
-          transition:'opacity 0.75s ease 0.15s,transform 0.75s ease 0.15s',
-        },children:e==='ru'?'Листай дальше':'Scroll for more'}),
+        a.jsx('defs',{children:a.jsxs('linearGradient',{id:'arrG',x1:'4',y1:'4',x2:'36',y2:'36',gradientUnits:'userSpaceOnUse',children:[
+          a.jsx('stop',{offset:'0%',stopColor:'#22c55e'}),
+          a.jsx('stop',{offset:'50%',stopColor:'#a855f7'}),
+          a.jsx('stop',{offset:'100%',stopColor:'#f97316'}),
+        ]})}),
+        a.jsx('path',{d:'M20 6 L20 32 M8 22 L20 34 L32 22',stroke:'url(#arrG)',strokeWidth:'2.8',strokeLinecap:'round',strokeLinejoin:'round'}),
       ]
     }),
+    a.jsx('span',{style:{
+      fontSize:'0.65rem',fontWeight:700,letterSpacing:'0.12em',
+      color:'rgba(0,0,0,0.3)',textTransform:'uppercase',
+    },children:e==='ru'?'Листай дальше':'Scroll for more'}),
   ]}),
-
 ]});}function lp({lang:e,isMobile:t}){const n=xn[e].hero,ai=xn[e].ai,r=e==="ru"?bd:ep,[msgs,setMsgs]=H.useState([{...r[0],_id:0}]),[typId,setTypId]=H.useState(0),[nIdx,setNIdx]=H.useState(1),tmr=H.useRef(null);H.useEffect(()=>{setMsgs([{...r[0],_id:0}]);setTypId(0);setNIdx(1);if(tmr.current)clearTimeout(tmr.current)},[e]);const onDone=H.useCallback(()=>{setNIdx(idx=>{const prev=r[(idx-1)%r.length],delay=prev?.icon==="done"?1800:800;tmr.current=setTimeout(()=>{setMsgs(m=>{const nm={...r[idx%r.length],_id:idx};setTypId(idx);return[...m,nm].slice(-6)})},delay);return idx+1})},[r]);return a.jsxs("section",{id:"cta-section",style:{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:t?"72px 20px 48px":"48px 40px",background:Il,position:"relative",overflow:"hidden"},children:[a.jsx("div",{style:{position:"absolute",inset:0,pointerEvents:"none",background:"radial-gradient(ellipse 70% 50% at 50% 40%, rgba(59,130,246,0.05) 0%, rgba(168,85,247,0.03) 50%, transparent 80%)"}}),a.jsxs("div",{style:{maxWidth:1100,width:"100%",display:"flex",flexDirection:t?"column":"row",alignItems:"center",gap:t?36:56},children:[a.jsxs("div",{style:{flex:"0 0 auto",width:t?"100%":"44%",textAlign:t?"center":"left"},children:[a.jsx(It,{children:a.jsxs("div",{style:{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(34,197,94,0.08)",border:"1px solid rgba(34,197,94,0.25)",borderRadius:100,padding:"6px 16px",fontSize:"0.7rem",fontWeight:700,letterSpacing:"0.12em",color:"#16a34a",marginBottom:24},children:[a.jsx("span",{style:{width:6,height:6,borderRadius:"50%",background:kc,display:"inline-block",animation:"pulse-glow 2s ease infinite"}}),n.badge]})}),a.jsx(It,{d:.1,children:a.jsx("h2",{style:{fontSize:t?"min(7vw, 1.8rem)":"min(3.2vw, 2.8rem)",fontWeight:900,letterSpacing:"-0.025em",lineHeight:1.08,marginBottom:20,background:Xe,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"},children:n.h1})}),a.jsx(It,{d:.2,children:a.jsx("p",{style:{fontSize:t?"0.95rem":"1rem",color:Ye,maxWidth:420,lineHeight:1.6,marginBottom:32,fontWeight:500},children:n.sub})}),a.jsx(It,{d:.3,children:a.jsxs("div",{id:"invite",style:{display:"flex",flexDirection:"column",alignItems:t?"center":"flex-start",gap:10},children:[a.jsx("button",{style:{background:Xe,color:"#fff",border:"none",cursor:"pointer",padding:t?"12px 28px":"14px 40px",borderRadius:100,fontSize:t?"0.92rem":"0.97rem",fontWeight:700,boxShadow:"0 4px 28px rgba(168,85,247,0.3)",transition:"transform 0.2s, box-shadow 0.2s"},onMouseEnter:v=>{const q=v.currentTarget;q.style.transform="scale(1.04)";q.style.boxShadow="0 8px 36px rgba(168,85,247,0.45)"},onMouseLeave:v=>{const q=v.currentTarget;q.style.transform="scale(1)";q.style.boxShadow="0 4px 28px rgba(168,85,247,0.3)"},children:n.btn}),a.jsx("div",{style:{fontSize:"0.76rem",color:ur,fontWeight:500},children:n.note})]})})]}),a.jsxs("div",{style:{flex:1,minWidth:0},children:[a.jsx("p",{style:{textAlign:"center",marginBottom:12,fontSize:"0.68rem",fontWeight:700,letterSpacing:"0.12em",color:"#64748b",textTransform:"uppercase"},children:ai.label}),a.jsxs("div",{style:{background:"#ffffff",borderRadius:16,border:"1px solid #e8eaed",overflow:"hidden",boxShadow:"0 4px 20px rgba(0,0,0,0.06)"},children:[a.jsxs("div",{style:{display:"flex",alignItems:"center",gap:8,padding:"11px 20px",borderBottom:"1px solid #e8eaed",background:"#f8f9fc"},children:[a.jsx("span",{style:{width:7,height:7,borderRadius:"50%",background:kc,display:"inline-block",animation:"blink 2s ease infinite"}}),a.jsx("span",{style:{fontSize:"0.73rem",fontWeight:700,color:"#64748b",letterSpacing:"0.05em"},children:ai.live})]}),a.jsxs("div",{style:{height:300,overflow:"hidden",position:"relative",padding:"4px 0"},children:[msgs.map((h,g)=>{const m=os[h.icon]??os.search,isTyp=h._id===typId;return a.jsxs("div",{style:{display:"flex",alignItems:"flex-start",gap:10,padding:"10px 20px",borderBottom:"1px solid #f0f2f5",fontSize:t?"0.79rem":"0.84rem",lineHeight:1.5,color:"#1a1a2e"},children:[a.jsx("div",{style:{flexShrink:0,width:22,height:22,borderRadius:5,background:m.bg,color:m.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:"0.72rem",fontWeight:700,marginTop:1},children:m.sym}),a.jsxs("div",{style:{flex:1},children:[a.jsx(Tw,{html:h.html,active:isTyp,onDone:isTyp?onDone:void 0}),"tags"in h&&h.tags&&a.jsx("div",{style:{display:"flex",flexWrap:"wrap",gap:5,marginTop:5},children:h.tags.map(x=>a.jsx("span",{style:{fontSize:"0.72rem",fontWeight:700,background:hl,borderRadius:100,padding:"2px 10px",color:Ye},children:x},x))})]})]},h._id??g)}),a.jsx("div",{style:{position:"absolute",bottom:0,left:0,right:0,height:44,background:"linear-gradient(transparent, #ffffff)",pointerEvents:"none"}})]})]})]})]})]})}
 const os={search:{bg:"rgba(59,130,246,0.1)",color:"#3b82f6",sym:"⌕"},found:{bg:"rgba(34,197,94,0.1)",color:"#16a34a",sym:"✓"},filter:{bg:"rgba(249,115,22,0.1)",color:"#f97316",sym:"◎"},match:{bg:"rgba(168,85,247,0.1)",color:"#a855f7",sym:"✦"},done:{bg:"rgba(236,72,153,0.1)",color:"#ec4899",sym:"→"}};function Tw({html:e,onDone:d,active:ac}){const[n,r]=H.useState(0),[dn,sd]=H.useState(!1),iR=H.useRef(null);const p=e.replace(/<[^>]*>/g,"");H.useEffect(()=>{if(!ac){sd(!1);return}r(0);sd(!1);if(iR.current)clearInterval(iR.current);let s=0;iR.current=setInterval(()=>{s++;r(s);if(s>=p.length){clearInterval(iR.current);sd(!0);if(d)setTimeout(d,200)}},30);return()=>{if(iR.current)clearInterval(iR.current)}},[e,ac]);if(!ac||dn)return a.jsx("span",{dangerouslySetInnerHTML:{__html:e.replace(/<b>/g,'<b style="color:#111111;font-weight:700">')}});return a.jsxs("span",{children:[p.slice(0,n),a.jsx("span",{style:{display:"inline-block",width:"1.5px",height:"0.85em",background:"#94a3b8",marginLeft:"1px",verticalAlign:"middle",animation:"blink 0.7s steps(1) infinite"}})]})}
 
