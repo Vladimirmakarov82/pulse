@@ -150,13 +150,14 @@ return a.jsxs(a.Fragment,{children:[
       children:[
         sl.logo?a.jsxs(a.Fragment,{children:[
           a.jsx("h1",{
+            key:"pulse-logo-"+slide,
             style:{
               fontSize:t?"min(24vw,5.5rem)":"min(18vw,14rem)",
               fontWeight:900,
               letterSpacing:"-0.03em",
               lineHeight:1,
               ...gradText,
-              animation:"slideUp 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.1s both",
+              animation:"slideUp 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.05s both",
               userSelect:"none",
             },
             children:"PULSE"
@@ -178,6 +179,7 @@ return a.jsxs(a.Fragment,{children:[
             children:sl.sub
           }),
         ]}):a.jsx("h2",{
+          key:"slide-text-"+i+"-"+slide,
           style:{
             fontSize:t?"min(14vw,3.5rem)":"min(10vw,8rem)",
             fontWeight:900,
