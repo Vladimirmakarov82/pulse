@@ -252,5 +252,14 @@ return a.jsx("section",{style:{padding:t?"56px 20px":"80px 40px",background:Il},
 <div id="pfcta">
   <button type="button" onclick="document.getElementById('invite-modal').style.display='flex'">Получить инвайт</button>
 </div>
+
+<script>
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'closeFounders') {
+    // Находим React state setter через DOM — просто перезагружаем
+    window.location.reload();
+  }
+});
+</script>
 </body>
 </html>
