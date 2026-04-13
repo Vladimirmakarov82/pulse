@@ -335,5 +335,18 @@ window.addEventListener('message', function(e) {
   }
 });
 </script>
+
+<script>
+// Init after React mounts
+window.addEventListener('DOMContentLoaded', function() {
+  var check = setInterval(function() {
+    var hero = document.getElementById('pulse-hero');
+    if (!hero || hero.classList.contains('gone')) {
+      clearInterval(check);
+    }
+  }, 200);
+  setTimeout(function() { clearInterval(check); }, 10000);
+});
+</script>
 </body>
 </html>
