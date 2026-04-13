@@ -359,5 +359,21 @@ function copyInvite() {
   <button type="button" onclick="document.getElementById('invite-modal').style.display='flex'">Получить инвайт</button>
 </div>
 
+
+<div id="hero-mask"></div>
+<script>
+(function(){
+  var mask=document.getElementById('hero-mask');
+  if(!mask||window.innerWidth>768)return;
+  function update(){
+    // Маска видна только когда мы близко к верху (первый экран)
+    var vh=window.innerHeight;
+    mask.style.opacity=window.scrollY<vh*0.5?'1':'0';
+    mask.style.pointerEvents='none';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
 </body>
 </html>
