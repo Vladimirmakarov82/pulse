@@ -26,34 +26,13 @@
 @keyframes pulseArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 @keyframes pulseSlideUp{0%{opacity:0;transform:translateY(1000px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulseArrowFloat{0%,to{transform:translateY(0)}50%{transform:translateY(10px)}}
-.grad-text{background:linear-gradient(135deg,#22c55e,#3b82f6,#a855f7 60%,#ec4899,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.grad-text-animate{background:linear-gradient(270deg,#22c55e,#3b82f6,#a855f7,#ec4899,#f97316,#22c55e);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 6s ease infinite}.fade-in{animation:fadeIn .6s ease forwards}@media (max-width: 767px){a[href^=mailto]{word-break:break-all;white-space:normal}#invite{display:none!important}}
+.grad-text{background:linear-gradient(135deg,#22c55e,#3b82f6,#a855f7 60%,#ec4899,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.grad-text-animate{background:linear-gradient(270deg,#22c55e,#3b82f6,#a855f7,#ec4899,#f97316,#22c55e);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 6s ease infinite}.fade-in{animation:fadeIn .6s ease forwards}@media (max-width: 767px){a[href^=mailto]{word-break:break-all;white-space:normal}}
 
 
     
 @media(max-width:767px){
-  #invite{display:none!important}
+  
   #pfcta{display:block!important}
-  #cta-section{position:relative;z-index:200;background:#fafafa}
-}
-#pfcta{
-  display:none;
-  position:fixed;
-  left:16px;right:16px;
-  bottom:32px;
-  z-index:9999;
-}
-#pfcta button{
-  width:100%;
-  background:linear-gradient(135deg,#22c55e,#3b82f6,#a855f7,#ec4899,#f97316);
-  color:#fff;
-  border:none;
-  padding:18px 24px;
-  border-radius:100px;
-  font-size:1rem;
-  font-weight:700;
-  font-family:inherit;
-  box-shadow:0 8px 32px rgba(168,85,247,0.4);
-  cursor:pointer;
 }
 </style>
   </head>
@@ -356,9 +335,6 @@ function copyInvite() {
 
 
 
-<div id="pfcta">
-  <button type="button" onclick="document.getElementById('invite-modal').style.display='flex'">Получить инвайт</button>
-</div>
 
 
 </body>
