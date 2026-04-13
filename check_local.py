@@ -23,7 +23,7 @@ def main():
     html = read("index.html")
     check(html, "pulse-hero",                "PULSE hero")
     check(html, "main-invite-btn",            "Кнопка инвайт с id")
-    check(html, "type:'button'",              "Кнопка type=button (не submit)")
+    check(html, "type:\"button\"",              "Кнопка type=button (не submit)")
     check(html, "showInviteModal",            "showInviteModal функция")
     check(html, "hideInviteModal",            "hideInviteModal функция")
     check(html, "invite-modal",              "Модал invite-modal")
