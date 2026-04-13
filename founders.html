@@ -51,6 +51,26 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
 .ph:nth-child(even){background:#f8f9fa}
 .ph-box{max-width:860px;border:2px dashed #e2e8f0;border-radius:16px;padding:60px 32px;text-align:center;color:#94a3b8;font-size:14px;line-height:2}
 .ph-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#cbd5e1;display:block;margin-bottom:8px}
+
+@media(max-width:767px){
+  nav{padding:0 16px}
+  .nav-links{display:none}
+  .block1,.block2{padding:32px 20px;grid-template-columns:1fr;gap:32px}
+  .block2{grid-template-columns:1fr}
+  .block2 .img-col{order:-1}
+  .img-col{max-width:100%}
+  .p{font-size:16px}
+  .p+.p{margin-top:14px}
+  .clubs-row{margin-top:20px}
+  .cta-wrap{margin-top:24px}
+  footer{padding:24px 20px}
+  .f-links{flex-direction:column;gap:8px}
+}
+@media(max-width:480px){
+  .block1,.block2{padding:24px 16px;gap:24px}
+  .p{font-size:15px}
+  .badge{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -59,8 +79,7 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
   <div style="display:flex;align-items:center;gap:40px">
     <a href="./index.html" onclick="if(window.self!==window.top){event.preventDefault();window.parent.postMessage({type:'closeFounders'},'*');}" class="logo"><div class="logo-icon">P</div>Pulse</a>
     <div class="nav-links">
-            <a href="#">Как работает</a>
-      <a href="#" class="active">Для комьюнити</a>
+            <a href="#" class="active">Для основателей комьюнити</a>
     </div>
   </div>
   <div class="nav-right">
@@ -122,8 +141,7 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
 (function() {
   var translations = {
     ru: {
-      "nav_how": "Как работает",
-      "nav_community": "Для комьюнити",
+      "nav_community": "Для основателей комьюнити",
       "nav_cta": "Подать заявку",
       "badge1": "ДЛЯ ОСНОВАТЕЛЕЙ КОМЬЮНИТИ",
       "h1": "Участники довольны — но их не заставить рекомендовать клуб или делать репосты.",
@@ -136,7 +154,6 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
       "footer": "© 2026 Pulse. Все права защищены."
     },
     en: {
-      "nav_how": "How It Works",
       "nav_community": "For Communities",
       "nav_cta": "Apply Now",
       "badge1": "FOR COMMUNITY FOUNDERS",
