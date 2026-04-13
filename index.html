@@ -358,18 +358,6 @@ function copyInvite() {
 <div id="pfcta">
   <button type="button" onclick="document.getElementById('invite-modal').style.display='flex'">Получить инвайт</button>
 </div>
-<script>
-(function(){
-  function updateCta(){
-    var el=document.getElementById('pfcta');
-    if(!el)return;
-    // Скрываем на hero экране (первые 80% высоты экрана)
-    el.style.opacity=window.scrollY>window.innerHeight*0.7?'1':'0';
-    el.style.pointerEvents=window.scrollY>window.innerHeight*0.7?'auto':'none';
-  }
-  window.addEventListener('scroll',updateCta,{passive:true});
-  setTimeout(updateCta,500);
-})();
-</script>
+
 </body>
 </html>
