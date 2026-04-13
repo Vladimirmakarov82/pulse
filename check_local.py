@@ -19,8 +19,8 @@ def check(html, pattern, label, must_exist=True):
         else: fail(f"Лишнее: {label}")
 
 def main():
-    print("\n📄 index.html")
-    html = read("index.html")
+    print("\n📄 index.html + app.js")
+    html = read("index.html") + read("app.js")
     check(html, "pulse-hero",                "PULSE hero")
     check(html, "main-invite-btn",            "Кнопка инвайт с id")
     check(html, "type:\"button\"",              "Кнопка type=button (не submit)")
