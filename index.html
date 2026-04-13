@@ -251,33 +251,44 @@ function copyInvite() {
 
 <script>
 (function() {
-  // Показываем sticky кнопку только на мобайле
   function initSticky() {
     if (window.innerWidth > 768) return;
-    var btn = document.getElementById('mobile-sticky-cta');
-    if (!btn) return;
-    btn.classList.add('visible');
+    var sticky = document.getElementById('mobile-sticky-cta');
+    if (!sticky) return;
+
+    function update() {
+      // Основная кнопка инвайт
+      var mainBtn = document.getElementById('main-invite-btn');
+      if (!mainBtn) { sticky.classList.add('visible'); return; }
+      var rect = mainBtn.getBoundingClientRect();
+      var visible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+      if (visible) {
+        sticky.classList.remove('visible');
+      } else {
+        sticky.classList.add('visible');
+      }
+    }
+
+    window.addEventListener('scroll', update, {passive: true});
+    setTimeout(update, 600);
 
     // Скрываем когда открыт модал
     var orig = window.showInviteModal;
     window.showInviteModal = function() {
       orig && orig();
-      btn.style.display = 'none';
+      sticky.classList.remove('visible');
     };
     var origHide = window.hideInviteModal;
     window.hideInviteModal = function() {
       origHide && origHide();
-      if (window.innerWidth <= 768) btn.style.display = 'block';
+      setTimeout(update, 100);
     };
   }
-  
-  // Запускаем после загрузки React
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(initSticky, 500);
-    });
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(initSticky, 600); });
   } else {
-    setTimeout(initSticky, 500);
+    setTimeout(initSticky, 600);
   }
 })();
 </script>
