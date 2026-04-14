@@ -49,7 +49,7 @@ def main():
     check(html, "closeApply()",              "closeApply функция")
     check(html, 'alt="Владимир Макаров"',   "Карточка Макарова")
     check(html, 'alt="Анна Козлова"',       "Карточка Козловой")
-    check(html, "Профиль каждого участника", "Текст block1")
+    check(html, "бесплатная реклама клуба", "Текст block1")
     check(html, "postMessage",               "Logo postMessage")
     check(html, "position:fixed",            "Крестик fixed")
     check(html, "Участники довольны",        "Старый текст", False)
