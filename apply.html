@@ -142,7 +142,7 @@ input::placeholder{color:#94a3b8}
 const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
 
 // Webhook URL (Make / n8n / Zapier) — replace with your endpoint
-const WEBHOOK_URL = 'https://hook.eu1.make.com/YOUR_WEBHOOK_ID';
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxtezIJmIexvNWdPpEzqWFr8-pMBr_OpQOzRTOSaGm6uaNqnuzu4GNKwm-mNwYBnRLQ7Q/exec';
 // ─────────────────────────────────────────────────────────────────────
 
 let googleUser = null;
@@ -228,19 +228,16 @@ function checkFormReady() {}
 
 document.getElementById('apply-form').addEventListener('input', checkFormReady);
 
-async function handleSubmit(e) {
+async async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span>Отправляем…';
 
   const data = {
-    timestamp: new Date().toISOString(),
-    google_name: googleUser?.name || '',
-    google_email: googleUser?.email || '',
-    club_name: document.getElementById('club-name').value.trim(),
+    club: document.getElementById('club-name').value.trim(),
     role: document.getElementById('role').value,
-    full_name: document.getElementById('full-name').value.trim(),
+    name: document.getElementById('full-name').value.trim(),
     telegram: '@' + document.getElementById('telegram').value.replace('@','').trim(),
     source: 'pulse-landing'
   };
