@@ -35,7 +35,7 @@ def main():
     check(html, "Sync подтверждён",          "Sync в AI ленте")
     check(html, "Только для участников бизнес", "Subtitle")
     check(html, "Живые знакомства",          "AI label")
-    check(html, "PulseWaitBot",              "Ссылка на бота")
+    check(html, "PulseProfile_bot",              "Ссылка на бота")
     check(html, "rgba(34,197,94,0.08)",      "Зелёная nav кнопка")
     # Антипроверки
     check(html, "Синк подтверждён",          "Синк→Sync", False)

@@ -203,7 +203,7 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
     }
   };
 
-  var currentLang = "ru";
+  var currentLang = (new URLSearchParams(window.location.search)).get("lang") || "ru";
 
   function applyLang(lang) {
     currentLang = lang;
@@ -262,6 +262,8 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
         applyLang(btn.textContent.trim().toLowerCase());
       });
     });
+    // Применяем язык из URL параметра при загрузке
+    applyLang(currentLang);
   });
 })();
 </script>
