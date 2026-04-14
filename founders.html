@@ -185,6 +185,7 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
       "cta_sub": "Первым 30 комьюнити — первый год бесплатно",
       "badge2": "🔒 Домашний клуб закреплён навсегда",
       "section_h2": "Состав комьюнити — лучший аргумент для подключения новых участников.",
+      "section_intro": "Состав комьюнити — лучший аргумент для подключения новых участников.",
       "section_body": "Pulse Feed — самый эффективный способ презентовать клуб. Видны ключевые показатели каждого участника, их актуальные запросы и возможности.",
       "footer": "© 2026 Pulse. Все права защищены."
     },
@@ -217,6 +218,12 @@ nav{background:#fff;border-bottom:1px solid #f0f0f0;padding:0 80px;height:60px;d
     // Nav CTA button
     var navCta = document.querySelector(".cta-nav");
     if (navCta) navCta.textContent = t.nav_cta;
+
+    // Translate all data-i18n elements
+    document.querySelectorAll("[data-i18n]").forEach(function(el) {
+      var key = el.getAttribute("data-i18n");
+      if (t[key]) el.textContent = t[key];
+    });
 
     // Update all text nodes by traversing
     function replaceText(sel, key) {
