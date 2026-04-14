@@ -54,8 +54,8 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
 /* ── APPLY OVERLAY ── */
 #apply-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(6,6,15,0.88);align-items:center;justify-content:center;padding:20px}
 #apply-overlay.open{display:flex}
-#apply-close{position:fixed;top:16px;right:20px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:13px;font-weight:600;cursor:pointer;padding:7px 16px;border-radius:8px;backdrop-filter:blur(8px)}
-#apply-iframe{width:100%;max-width:520px;height:85vh;border:none;border-radius:20px}
+#apply-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.06);border:none;color:#64748b;font-size:13px;font-weight:600;cursor:pointer;padding:6px 12px;border-radius:8px;z-index:10;transition:background 0.15s}#apply-close:hover{background:rgba(0,0,0,0.1)}
+#apply-iframe{width:100%;height:85vh;border:none;border-radius:20px;display:block}
 
 /* ── MOBILE ── */
 @media(max-width:768px){
@@ -131,8 +131,10 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
 
 <!-- APPLY OVERLAY -->
 <div id="apply-overlay" onclick="if(event.target===this)closeApply()">
-  <button id="apply-close" onclick="closeApply()" data-i18n-close="Закрыть">✕ Закрыть</button>
-  <iframe id="apply-iframe" src="./apply.html" title="Apply"></iframe>
+  <div style="position:relative;width:100%;max-width:520px">
+    <button id="apply-close" onclick="closeApply()">✕ Закрыть</button>
+    <iframe id="apply-iframe" src="./apply.html" title="Apply"></iframe>
+  </div>
 </div>
 
 <script>
