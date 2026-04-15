@@ -54,7 +54,7 @@ def main():
     check(html, "position:fixed",            "Крестик fixed")
     check(html, "Участники довольны",        "Старый текст", False)
     # Ровно 2 карточки
-    vm = html.count('Владимир Макаров')
+    vm = html.count("vm.html")
     ak = html.count('alt="Анна Козлова"')
     if vm >= 1 and ak == 1: ok("Ровно 2 карточки")
     else: fail(f"Карточки: VM={vm} AK={ak} (нужно по 1)")
