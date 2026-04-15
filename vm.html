@@ -438,6 +438,18 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 </div>
 
 <script>
+function toggleProds(btn) {
+  var list = document.getElementById('prodsList');
+  var isOpen = btn.classList.contains('open');
+  btn.classList.toggle('open');
+  list.style.display = isOpen ? 'none' : 'block';
+  if (!isOpen) setTimeout(function(){ list.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+}
+
+function toggleLike(idx) {
+  document.getElementById('invitePopup').classList.add('open');
+}
+
 // Hide all stories on load
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.story-block').forEach(function(el) {
