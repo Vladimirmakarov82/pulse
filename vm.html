@@ -83,6 +83,11 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 .prod-item:last-child{border-bottom:none}
 .prod-axis{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(200,240,96,.35);margin-bottom:2px}
 .prod-text{font-size:12px;color:rgba(255,255,255,.6);line-height:1.5}
+.prod-footer{display:flex;align-items:center;justify-content:flex-end;margin-top:7px}
+.prod-like{display:flex;align-items:center;gap:4px;background:none;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;cursor:pointer;font-size:10px;color:rgba(255,255,255,.35);font-family:'DM Sans',sans-serif;transition:all .15s}
+.prod-like:hover{border-color:rgba(200,240,96,.25);color:rgba(200,240,96,.6)}
+.prod-like.liked{border-color:rgba(200,240,96,.3);color:#c8f060;background:rgba(200,240,96,.05)}
+.prod-like-count{font-size:10px}
 
 /* Buttons */
 .card-btns{padding:8px 12px 4px;display:flex;gap:7px}
@@ -246,22 +251,32 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
     <div class="prods-wrap">
       <button class="prods-toggle" onclick="toggleProds(this)">
         <div class="prods-toggle-left">
-          <span class="prods-toggle-icon">📦</span>
-          <span>55 продуктов · что может дать людям</span>
+          
+          <span>55 полезных продуктов/знаний/возможностей</span>
         </div>
         <span class="prods-toggle-arr">↓</span>
       </button>
       <div class="prods-list" id="prodsList">
-        <div class="prod-item"><div class="prod-axis">Архитектура систем</div><div class="prod-text">Проектирование бизнес-архитектур, где ценность создаётся через связи, а не продукты</div></div>
-        <div class="prod-item"><div class="prod-axis">Токенизация активов · NWC</div><div class="prod-text">Долговой инструмент нового поколения — $25M под реальные активы. Структурирование сделок с девелоперами</div></div>
-        <div class="prod-item"><div class="prod-axis">AI-нетворкинг · Pulse</div><div class="prod-text">Протокол интеллектуального нетворкинга для клубов — AI находит асимметрию между участниками</div></div>
-        <div class="prod-item"><div class="prod-axis">Граф возможностей</div><div class="prod-text">Прямой доступ к 500+ предпринимателям, инвесторам, девелоперам из Союзников, Pulse и LAL</div></div>
-        <div class="prod-item"><div class="prod-axis">Два экзита</div><div class="prod-text">Опыт подготовки и продажи бизнеса — финансовая модель, команда без основателя, story для покупателя</div></div>
-        <div class="prod-item"><div class="prod-axis">Привлечение инвестиций</div><div class="prod-text">Закрытый раунд $2.5M. Знает как структурировать сделку и работать с инвесторами изнутри</div></div>
-        <div class="prod-item"><div class="prod-axis">Нейромаркетинг · EMONOMY</div><div class="prod-text">Нейроаналитика поведения потребителей — данные для бизнес-решений вместо интуиции</div></div>
-        <div class="prod-item"><div class="prod-axis">Web3 изнутри операций</div><div class="prod-text">Практический опыт работы с DeFi, институциональными партнёрами и токен-структурами</div></div>
-        <div class="prod-item"><div class="prod-axis">Доступ в Союзники</div><div class="prod-text">Партнёрство и co-founder возможности внутри закрытого клуба предпринимателей $2-30M выручки</div></div>
-        <div class="prod-item"><div class="prod-axis">Кочевой образ жизни</div><div class="prod-text">Москва · Бали · Кейптаун — нетворк и синергия между разными предпринимательскими культурами</div></div>
+        <div class="prod-item"><div class="prod-axis">Архитектура систем</div><div class="prod-text">Проектирование бизнес-архитектур, где ценность создаётся через связи, а не продукты</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Токенизация активов · NWC</div><div class="prod-text">Долговой инструмент нового поколения — $25M под реальные активы. Структурирование сделок с девелоперами</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">AI-нетворкинг · Pulse</div><div class="prod-text">Протокол интеллектуального нетворкинга для клубов — AI находит асимметрию между участниками</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Граф возможностей</div><div class="prod-text">Прямой доступ к 500+ предпринимателям, инвесторам, девелоперам из Союзников, Pulse и LAL</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Два экзита</div><div class="prod-text">Опыт подготовки и продажи бизнеса — финансовая модель, команда без основателя, story для покупателя</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Привлечение инвестиций</div><div class="prod-text">Закрытый раунд $2.5M. Знает как структурировать сделку и работать с инвесторами изнутри</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Нейромаркетинг · EMONOMY</div><div class="prod-text">Нейроаналитика поведения потребителей — данные для бизнес-решений вместо интуиции</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Web3 изнутри операций</div><div class="prod-text">Практический опыт работы с DeFi, институциональными партнёрами и токен-структурами</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Доступ в Союзники</div><div class="prod-text">Партнёрство и co-founder возможности внутри закрытого клуба предпринимателей $2-30M выручки</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
+        <div class="prod-item"><div class="prod-axis">Кочевой образ жизни</div><div class="prod-text">Москва · Бали · Кейптаун — нетворк и синергия между разными предпринимательскими культурами</div>
+        <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
       </div>
     </div>
 
@@ -310,6 +325,19 @@ document.addEventListener('DOMContentLoaded', function() {
     el.style.display = 'none';
   });
 });
+
+function toggleLike(btn) {
+  var isLiked = btn.classList.contains('liked');
+  var countEl = btn.querySelector('.prod-like-count');
+  var count = parseInt(countEl.textContent);
+  if (isLiked) {
+    btn.classList.remove('liked');
+    btn.innerHTML = '♡ <span class="prod-like-count">' + (count - 1) + '</span>';
+  } else {
+    btn.classList.add('liked');
+    btn.innerHTML = '♥ <span class="prod-like-count">' + (count + 1) + '</span>';
+  }
+}
 
 function toggleProds(btn) {
   var list = document.getElementById('prodsList');
