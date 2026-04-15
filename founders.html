@@ -73,6 +73,23 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
   nav{padding:0 16px}
   .block1,.block2-inner{padding:32px 16px}
 }
+
+.card-wrapper{position:relative;display:inline-block;width:100%}
+.card-highlight{
+  position:absolute;
+  top:8.2%; left:18%; width:48%; height:5%;
+  pointer-events:none;
+  border-radius:5px;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,215,60,0.4) 50%,transparent 100%);
+  background-size:200% 100%;
+  animation:cardShimmer 2.8s ease-in-out infinite;
+}
+@keyframes cardShimmer{
+  0%{background-position:-100% 0;opacity:0}
+  15%{opacity:1}
+  85%{opacity:1}
+  100%{background-position:200% 0;opacity:0}
+}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -217,4 +234,5 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 </body>
+<!-- cache bust 1776261324 -->
 </html>
