@@ -111,32 +111,10 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 .like-btn:hover{border-color:rgba(200,240,96,.3);color:rgba(200,240,96,.6)}
 
 
-.id-club-name{
-  font-size:11px;font-weight:600;color:#c8f060;
-  position:relative;
-  display:inline-block;
-  overflow:hidden;
-}
-.id-club-name::after{
-  content:'';
-  position:absolute;
-  top:-2px;left:-80%;
-  width:50%;height:calc(100% + 4px);
-  background:linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255,255,255,0) 25%,
-    rgba(255,255,255,0.6) 50%,
-    rgba(255,255,255,0) 75%,
-    transparent 100%
-  );
-  transform:skewX(-20deg);
-  animation:glassShimmer 2.5s ease-in-out infinite;
-}
-@keyframes glassShimmer{
-  0%  { left:-80%; }
   100%{ left:160%; }
 }
+
+.id-club-name{font-size:11px;color:#c8f060;font-weight:600}
 </style>
 </head>
 <body>
@@ -504,6 +482,135 @@ function toggleStory(idx) {
     setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
   }
 }
+</script>
+
+
+<script id="magnifier-script">
+(function() {
+  // Ждём загрузки
+  document.addEventListener('DOMContentLoaded', function() {
+    var clubBlock = document.querySelector('.id-club');
+    if (!clubBlock) return;
+
+    // Создаём лупу
+    var lens = document.createElement('div');
+    lens.id = 'pulse-lens';
+    lens.innerHTML = '<div id="pulse-lens-inner"></div>';
+    document.body.appendChild(lens);
+
+    var style = document.createElement('style');
+    style.textContent = `
+      #pulse-lens {
+        position: fixed;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        /* Стекло лупы */
+        background: radial-gradient(
+          circle at 35% 35%,
+          rgba(255,255,255,0.12) 0%,
+          rgba(255,255,255,0.04) 40%,
+          rgba(200,240,96,0.06) 100%
+        );
+        border: 1.5px solid rgba(200,240,96,0.5);
+        box-shadow:
+          0 0 0 1px rgba(200,240,96,0.15),
+          0 8px 32px rgba(0,0,0,0.5),
+          inset 0 1px 0 rgba(255,255,255,0.2),
+          inset 0 0 20px rgba(200,240,96,0.05);
+        backdrop-filter: blur(0px);
+        overflow: hidden;
+      }
+      #pulse-lens.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      /* Блик на стекле */
+      #pulse-lens::before {
+        content: '';
+        position: absolute;
+        top: 8px; left: 15px;
+        width: 30px; height: 14px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 50%;
+        transform: rotate(-30deg);
+      }
+      /* Ручка лупы */
+      #pulse-lens::after {
+        content: '';
+        position: absolute;
+        bottom: -22px; right: -8px;
+        width: 6px; height: 28px;
+        background: linear-gradient(180deg, rgba(200,240,96,0.5), rgba(200,240,96,0.2));
+        border-radius: 3px;
+        transform: rotate(40deg);
+      }
+      /* Текст внутри лупы — увеличенный */
+      #pulse-lens-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 800;
+        color: #c8f060;
+        text-shadow: 0 0 12px rgba(200,240,96,0.6);
+        letter-spacing: 0.02em;
+        padding: 0 10px;
+        text-align: center;
+        line-height: 1.3;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Позиционируем лупу над блоком
+    function showLens() {
+      var rect = clubBlock.getBoundingClientRect();
+      var centerX = rect.left + rect.width / 2;
+      var centerY = rect.top + rect.height / 2;
+      
+      // Центрируем лупу над блоком
+      lens.style.left = (centerX - 55) + 'px';
+      lens.style.top = (centerY - 75) + 'px';
+      lens.querySelector('#pulse-lens-inner').textContent = 'Союзники';
+      lens.classList.add('visible');
+    }
+
+    function hideLens() {
+      lens.classList.remove('visible');
+    }
+
+    // Цикл: показываем каждые 4 секунды на 2 секунды
+    function cycle() {
+      showLens();
+      setTimeout(function() {
+        hideLens();
+      }, 2000);
+    }
+
+    // Первый показ через 1.5 сек
+    setTimeout(function() {
+      cycle();
+      setInterval(cycle, 4500);
+    }, 1500);
+
+    // При скролле обновляем позицию
+    window.addEventListener('scroll', function() {
+      if (lens.classList.contains('visible')) {
+        var rect = clubBlock.getBoundingClientRect();
+        lens.style.left = (rect.left + rect.width/2 - 55) + 'px';
+        lens.style.top = (rect.top + rect.height/2 - 75) + 'px';
+      }
+    });
+  });
+})();
 </script>
 
 </body>
