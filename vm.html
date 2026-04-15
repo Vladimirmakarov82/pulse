@@ -59,7 +59,7 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 .hook-arr{margin-left:auto;color:rgba(255,255,255,.15);font-size:14px;align-self:center}
 
 /* Story */
-.story-block{margin:0 12px 8px;padding:14px;background:rgba(255,255,255,.02);border-left:3px solid #c8f060;border-radius:0 9px 9px 0;animation:fadeIn .2s ease;display:none}
+.story-block{margin:0 12px 8px;padding:14px;background:rgba(255,255,255,.02);border-left:3px solid #c8f060;border-radius:0 9px 9px 0;animation:fadeIn .2s ease}
 .story-cat{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,240,96,.4);margin-bottom:6px}
 .story-title{font-family:'Instrument Serif',serif;font-size:19px;color:#fff;line-height:1.3;margin-bottom:10px}
 .story-body{font-size:13px;color:rgba(255,255,255,.55);line-height:1.75}
@@ -109,10 +109,12 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 
   <!-- Card -->
   <div class="card-wrap">
-    <span class="tier-badge">GOLD</span>
     <div class="card-mention">
       <a href="https://t.me/vladimir_makarov" target="_blank">@vladimir_makarov</a>
-      <span>обновлено 13 марта 2026</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:10px;color:rgba(255,255,255,.3)">обновлено 13 марта 2026</span>
+        <span class="tier-badge" style="position:static">GOLD</span>
+      </div>
     </div>
 
     <div class="card-identity">
@@ -265,6 +267,13 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 </div>
 
 <script>
+// Hide all stories on load
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.story-block').forEach(function(el) {
+    el.style.display = 'none';
+  });
+});
+
 var openStory = null;
 function toggleStory(idx) {
   var el = document.getElementById('story-' + idx);
