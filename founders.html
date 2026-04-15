@@ -92,6 +92,48 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
   60% { box-shadow: 0 0 0px 3px rgba(255,200,50,0.9), 0 0 20px 6px rgba(255,200,50,0.3); }
   100%{ box-shadow: 0 0 0px 0px rgba(255,200,50,0); }
 }
+
+/* ── PULSE CARD ── */
+.pulse-card{
+  background:#111;
+  border:1px solid rgba(200,240,96,0.25);
+  border-radius:16px;
+  padding:16px;
+  font-family:'Manrope',sans-serif;
+  color:#fff;
+  max-width:340px;
+  margin:0 auto;
+  box-shadow:0 8px 40px rgba(0,0,0,0.4);
+}
+.pc-top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.pc-handle{font-size:11px;color:rgba(200,240,96,0.6)}
+.pc-badge-master{font-size:10px;font-weight:700;color:#f59e0b;border:1px solid #f59e0b;border-radius:100px;padding:2px 10px;letter-spacing:0.05em}
+.pc-identity{display:flex;gap:12px;margin-bottom:14px}
+.pc-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1d6a4a,#2d9e75);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.pc-name{font-size:15px;font-weight:800;color:#fff;margin-bottom:6px}
+.pc-club-wrap{display:flex;align-items:flex-start;gap:6px;margin-bottom:6px;background:rgba(200,240,96,0.06);border:1px solid rgba(200,240,96,0.12);border-radius:8px;padding:6px 10px}
+.pc-club-pre{font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em}
+.pc-club-name{
+  font-size:13px;font-weight:700;color:#c8f060;
+  animation:clubNamePulse 2.5s ease-in-out infinite;
+}
+@keyframes clubNamePulse{
+  0%,100%{text-shadow:0 0 0px rgba(200,240,96,0); color:#c8f060}
+  50%{text-shadow:0 0 8px rgba(200,240,96,0.8), 0 0 20px rgba(200,240,96,0.4); color:#deff7a}
+}
+.pc-role{font-size:11px;color:rgba(255,255,255,0.6);margin-bottom:3px}
+.pc-geo{font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:8px}
+.pc-badges-row{display:flex;gap:6px;flex-wrap:wrap}
+.pc-badge-prod{font-size:10px;font-weight:600;background:rgba(200,240,96,0.1);color:#c8f060;border-radius:6px;padding:3px 8px}
+.pc-badge-score{font-size:10px;color:rgba(255,255,255,0.4);padding:3px 0}
+.pc-skills{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pc-skill{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:10px 12px}
+.pc-skill-num{font-size:22px;font-weight:800;color:#c8f060;min-width:28px;line-height:1}
+.pc-skill-label{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px}
+.pc-skill-text{font-size:12px;font-weight:600;color:rgba(255,255,255,0.85)}
+.pc-sync-btn{background:#c8f060;color:#0a0a0a;font-size:13px;font-weight:700;border-radius:10px;padding:11px;text-align:center;margin-bottom:10px;cursor:pointer}
+.pc-create-btn{display:block;background:#c8f060;color:#0a0a0a;font-size:13px;font-weight:700;border-radius:10px;padding:11px;text-align:center;text-decoration:none;margin-bottom:8px}
+.pc-hint{font-size:9px;color:rgba(255,255,255,0.2);text-align:center}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -128,9 +170,39 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
       </button>
     </div>
     <div class="card-col">
-      <div class="card-wrapper">
-        <img src="./card_vm.png" alt="Владимир Макаров" class="card-img"><div class="card-highlight"></div>
-  
+      <div class="pulse-card">
+        <div class="pc-top-row">
+          <span class="pc-handle">@vladimir_makarov · 13 марта 2026</span>
+          <span class="pc-badge-master">MASTER</span>
+        </div>
+        <div class="pc-identity">
+          <div class="pc-avatar">ВМ</div>
+          <div class="pc-identity-info">
+            <div class="pc-name">Владимир Макаров</div>
+            <div class="pc-club-wrap">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c8f060" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+              <div>
+                <div class="pc-club-pre">домашний клуб</div>
+                <div class="pc-club-name">Союзники</div>
+              </div>
+            </div>
+            <div class="pc-role">Серийный предприниматель · Pulse, LAL, NWC</div>
+            <div class="pc-geo">Живёт: Москва · Бали · Кейптаун</div>
+            <div class="pc-badges-row">
+              <span class="pc-badge-prod">55 продуктов</span>
+              <span class="pc-badge-score">Pulse Score 638</span>
+            </div>
+          </div>
+        </div>
+        <div class="pc-skills">
+          <div class="pc-skill"><span class="pc-skill-num">10</span><div><div class="pc-skill-label">ЭКСПЕРТИЗА</div><div class="pc-skill-text">30+ IT-продуктов · Disney, P&amp;G, Яндекс</div></div></div>
+          <div class="pc-skill"><span class="pc-skill-num">10</span><div><div class="pc-skill-label">ЭКСПЕРТИЗА</div><div class="pc-skill-text">Привлёк $5M+ в свои проекты</div></div></div>
+          <div class="pc-skill"><span class="pc-skill-num">9</span><div><div class="pc-skill-label">ЭКСПЕРТИЗА</div><div class="pc-skill-text">2 экзита · строит 3-й бизнес</div></div></div>
+          <div class="pc-skill"><span class="pc-skill-num">9</span><div><div class="pc-skill-label">ЭКСПЕРТИЗА</div><div class="pc-skill-text">Нетворк 2000+ предпринимателей</div></div></div>
+        </div>
+        <div class="pc-sync-btn">⟳ AI Sync</div>
+        <a class="pc-create-btn" href="https://t.me/PulseProfile_bot" target="_blank">Создать AI-профиль — бесплатно</a>
+        <div class="pc-hint">Pulse · без спама · только нужные знакомства</div>
       </div>
     </div>
   </div>
