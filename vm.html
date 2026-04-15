@@ -259,7 +259,419 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
       <button class="prods-toggle" onclick="toggleProds(this)">
         <div class="prods-toggle-left">
           
-          <span>55 полезных продуктов/знаний/возможностей</span>
+          <span>29 полезных продуктов/знаний/возможностей</span>
+        </div>
+        <span class="prods-toggle-arr">↓</span>
+      </button>
+      <div class="prods-list" id="prodsList">
+        <div class="prod-item">
+          <div class="prod-axis">Архитектор систем</div>
+          <div class="prod-text">Проектирую бизнес-архитектуры, где ценность создаётся через связи. Вижу экосистему, а не отдельный продукт</div>
+          <div class="prod-like"><button class="like-btn" id="like-0" onclick="toggleLike(0)">♡ <span id="lc-0">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Граф возможностей $10M+</div>
+          <div class="prod-text">Прямой доступ к 500+ предпринимателям, инвесторам, девелоперам через Союзники, Pulse и Alpha Tribe</div>
+          <div class="prod-like"><button class="like-btn" id="like-1" onclick="toggleLike(1)">♡ <span id="lc-1">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">NWC — $25M долговой инструмент</div>
+          <div class="prod-text">Токенизация реальных активов. Первая сделка — падел-клуб в Марбелье. Структурирую сделки с девелоперами</div>
+          <div class="prod-like"><button class="like-btn" id="like-2" onclick="toggleLike(2)">♡ <span id="lc-2">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Доступ в Союзники</div>
+          <div class="prod-text">Закрытый клуб предпринимателей с выручкой $2-30M. Партнёрства, co-founder возможности, умные деньги</div>
+          <div class="prod-like"><button class="like-btn" id="like-3" onclick="toggleLike(3)">♡ <span id="lc-3">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Опыт двух экзитов</div>
+          <div class="prod-text">Знаю как готовить бизнес к продаже изнутри — финансовая модель, команда без основателя, story для покупателя</div>
+          <div class="prod-like"><button class="like-btn" id="like-4" onclick="toggleLike(4)">♡ <span id="lc-4">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Нейромаркетинг EMONOMY</div>
+          <div class="prod-text">Нейроаналитика поведения потребителей — данные для бизнес-решений вместо интуиции и догадок</div>
+          <div class="prod-like"><button class="like-btn" id="like-5" onclick="toggleLike(5)">♡ <span id="lc-5">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Web3 изнутри операций</div>
+          <div class="prod-text">Практический опыт с DeFi, институциональными партнёрами, токен-структурами и on-chain аналитикой</div>
+          <div class="prod-like"><button class="like-btn" id="like-6" onclick="toggleLike(6)">♡ <span id="lc-6">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Психология инвесторов</div>
+          <div class="prod-text">Понимаю логику принятия решений с обеих сторон стола. Помогаю фаундерам правильно упаковать питч</div>
+          <div class="prod-like"><button class="like-btn" id="like-7" onclick="toggleLike(7)">♡ <span id="lc-7">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">AI-лидерство в нетворкинге</div>
+          <div class="prod-text">Pulse — первый AI-протокол для клубов. Строю категорию, а не продукт</div>
+          <div class="prod-like"><button class="like-btn" id="like-8" onclick="toggleLike(8)">♡ <span id="lc-8">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Культурный код предпринимателя</div>
+          <div class="prod-text">Москва · Бали · Кейптаун · Марбелья. Понимаю как работать в разных предпринимательских культурах</div>
+          <div class="prod-like"><button class="like-btn" id="like-9" onclick="toggleLike(9)">♡ <span id="lc-9">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Психол. типирование партнёров</div>
+          <div class="prod-text">Определяю совместимость по ценностям и стилю работы до начала партнёрства — экономит годы</div>
+          <div class="prod-like"><button class="like-btn" id="like-10" onclick="toggleLike(10)">♡ <span id="lc-10">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Токенизация Real Estate</div>
+          <div class="prod-text">Создаю инструменты для девелоперов нового поколения — от структурирования до выхода</div>
+          <div class="prod-like"><button class="like-btn" id="like-11" onclick="toggleLike(11)">♡ <span id="lc-11">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Раунд $2.5M закрыт</div>
+          <div class="prod-text">Прошёл путь от идеи до закрытого раунда. Знаю как строить отношения с инвесторами в долгую</div>
+          <div class="prod-like"><button class="like-btn" id="like-12" onclick="toggleLike(12)">♡ <span id="lc-12">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">DeFi + институциональные партнёры</div>
+          <div class="prod-text">Нахожу точки соприкосновения между традиционными финансами и Web3-инфраструктурой</div>
+          <div class="prod-like"><button class="like-btn" id="like-13" onclick="toggleLike(13)">♡ <span id="lc-13">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">500 Global акселератор</div>
+          <div class="prod-text">Алюмни сети 500 Global — доступ к глобальному нетворку фаундеров и инвесторов</div>
+          <div class="prod-like"><button class="like-btn" id="like-14" onclick="toggleLike(14)">♡ <span id="lc-14">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Найм VP из $12B компаний</div>
+          <div class="prod-text">Строю команды через нетворк, а не headhunters. Привлекаю людей уровня VP из крупных компаний</div>
+          <div class="prod-like"><button class="like-btn" id="like-15" onclick="toggleLike(15)">♡ <span id="lc-15">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Data flywheel мышление</div>
+          <div class="prod-text">Проектирую продукты где каждый пользователь улучшает продукт для следующего</div>
+          <div class="prod-like"><button class="like-btn" id="like-16" onclick="toggleLike(16)">♡ <span id="lc-16">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Нарратив серийного фаундера</div>
+          <div class="prod-text">Помогаю фаундерам сформулировать историю так, чтобы она работала на инвестора, партнёра и команду</div>
+          <div class="prod-like"><button class="like-btn" id="like-17" onclick="toggleLike(17)">♡ <span id="lc-17">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Белые маркет-мейкеры</div>
+          <div class="prod-text">Экспертиза в легальном маркет-мейкинге для токенов на CEX/DEX</div>
+          <div class="prod-like"><button class="like-btn" id="like-18" onclick="toggleLike(18)">♡ <span id="lc-18">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Международная стратегия</div>
+          <div class="prod-text">Выстраиваю выход на рынки ОАЭ, Испании, Азии — с нужными людьми, а не через холодные контакты</div>
+          <div class="prod-like"><button class="like-btn" id="like-19" onclick="toggleLike(19)">♡ <span id="lc-19">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">топ-брендов мира</div>
+          <div class="prod-text">Понимаю как крупные бренды строят лояльность и переношу эти механики в B2B нетворкинг</div>
+          <div class="prod-like"><button class="like-btn" id="like-20" onclick="toggleLike(20)">♡ <span id="lc-20">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Собственных мо…</div>
+          <div class="prod-text">Строю и монетизирую собственные медиа-активы как канал привлечения качественной аудитории</div>
+          <div class="prod-like"><button class="like-btn" id="like-21" onclick="toggleLike(21)">♡ <span id="lc-21">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">лекционер...</div>
+          <div class="prod-text">Выступаю на закрытых мероприятиях для предпринимателей — делюсь опытом, строю доверие</div>
+          <div class="prod-like"><button class="like-btn" id="like-22" onclick="toggleLike(22)">♡ <span id="lc-22">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Яхт-нетворкинг</div>
+          <div class="prod-text">Организую закрытые мероприятия на воде — формат где рождаются настоящие партнёрства</div>
+          <div class="prod-like"><button class="like-btn" id="like-23" onclick="toggleLike(23)">♡ <span id="lc-23">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">15 лет счастливого брака</div>
+          <div class="prod-text">Долгосрочные отношения — это тоже продукт. Знаю как строить доверие в долгую</div>
+          <div class="prod-like"><button class="like-btn" id="like-24" onclick="toggleLike(24)">♡ <span id="lc-24">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Трансграничные платежи</div>
+          <div class="prod-text">Нахожу рабочие решения для международных платежей в условиях санкционных ограничений</div>
+          <div class="prod-like"><button class="like-btn" id="like-25" onclick="toggleLike(25)">♡ <span id="lc-25">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Кочевой образ жизни</div>
+          <div class="prod-text">Москва · Бали · Кейптаун — синхронизирую жизнь и бизнес без привязки к одному рынку</div>
+          <div class="prod-like"><button class="like-btn" id="like-26" onclick="toggleLike(26)">♡ <span id="lc-26">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Доступ в Союзников</div>
+          <div class="prod-text">Знакомлю с нужными людьми внутри закрытого клуба — тёплый интро работает лучше холодного контакта</div>
+          <div class="prod-like"><button class="like-btn" id="like-27" onclick="toggleLike(27)">♡ <span id="lc-27">0</span></button></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-axis">Alpha Tribe Global</div>
+          <div class="prod-text">Co-founder сети для digital nomad предпринимателей — Бали, Марбелья, Кейптаун и далее</div>
+          <div class="prod-like"><button class="like-btn" id="like-28" onclick="toggleLike(28)">♡ <span id="lc-28">0</span></button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VMead>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0e0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:title" content="Владимир Макаров — Pulse Card">
+<meta property="og:description" content="Серийный предприниматель · NWC, Pulse, Alpha Tribe">
+<title>Владимир Макаров · Pulse</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255,255,.8);min-height:100vh}
+.page{max-width:480px;margin:0 auto;padding:16px}
+
+/* Pulse header */
+.pulse-header{display:flex;align-items:center;justify-content:space-between;padding:12px 0 16px}
+.pulse-logo{font-family:'Manrope',sans-serif;font-size:20px;font-style:normal;font-weight:900;letter-spacing:.05em;background:linear-gradient(135deg,#22c55e 0%,#3b82f6 30%,#a855f7 60%,#ec4899 80%,#f97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pulse-sub{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase}
+
+/* Card */
+.card-wrap{background:#17212b;border-radius:16px;overflow:hidden;margin-bottom:14px;position:relative;border:2px solid rgba(239,159,39,.55);box-shadow:0 8px 32px rgba(0,0,0,.4),0 0 30px rgba(239,159,39,.08)}
+.card-mention{padding:10px 16px 0;font-size:10px;color:rgba(255,255,255,.3);display:flex;justify-content:space-between}
+.card-mention a{color:#5b9cf6}
+.tier-badge{position:absolute;top:10px;right:12px;font-size:8px;font-weight:700;letter-spacing:.1em;padding:3px 9px;border-radius:20px;text-transform:uppercase;background:rgba(239,159,39,.15);border:1px solid rgba(239,159,39,.4);color:#FAC775}
+
+/* Identity */
+.card-identity{padding:10px 16px 12px;display:flex;align-items:flex-start;gap:12px}
+.id-av{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:17px;color:#fff;flex-shrink:0;border:2px solid rgba(239,159,39,.4);background:linear-gradient(135deg,#1d6a4a,#2d9e75)}
+.id-name{font-size:17px;font-weight:600;color:#FAC775;margin-bottom:2px}
+.id-club{display:flex;align-items:center;gap:7px;border-left:3px solid #c8f060;padding:4px 10px;margin:4px 0;background:rgba(200,240,96,.03);border-radius:0 7px 7px 0}
+.id-club-pre{font-size:8px;color:rgba(255,255,255,.25);letter-spacing:.05em}
+.id-club-name{font-size:11px;color:#c8f060;font-weight:600}
+.id-role{font-size:11px;color:rgba(255,255,255,.5);line-height:1.4}
+.id-geo{font-size:9.5px;color:rgba(255,255,255,.22);margin-top:2px}
+.id-badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.ib{display:inline-flex;border-radius:20px;padding:2px 8px;font-size:8px}
+.ib-prod{background:rgba(200,240,96,.05);border:1px solid rgba(200,240,96,.1);color:rgba(200,240,96,.55)}
+.ib-score{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.3)}
+
+/* Bio */
+.bio{font-size:12px;color:rgba(255,255,255,.52);line-height:1.65;margin:0 16px 12px}
+.bio strong{color:rgba(255,255,255,.82);font-weight:500}
+.bio em{font-style:normal;color:#c8f060}
+
+/* Separator */
+.sep{height:1px;background:linear-gradient(90deg,transparent,rgba(200,240,96,.12),transparent);margin:0 0 12px}
+
+/* Hooks */
+.hooks{padding:0 12px}
+.hook{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.02);margin-bottom:6px;cursor:pointer}
+.hook:hover{border-color:rgba(200,240,96,.15)}
+.hook-sq{flex-shrink:0;width:50px;height:50px;border-radius:9px;background:rgba(200,240,96,.06);border:1px solid rgba(200,240,96,.12);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:19px;color:#c8f060}
+.hook-cat{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,240,96,.4);margin-bottom:3px}
+.hook-text{font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:3px}
+.hook-more{font-size:9px;color:rgba(200,240,96,.35)}
+.hook-arr{margin-left:auto;color:rgba(255,255,255,.15);font-size:14px;align-self:center}
+
+/* Story */
+.story-block{margin:0 12px 8px;padding:14px;background:rgba(255,255,255,.02);border-left:3px solid #c8f060;border-radius:0 9px 9px 0;animation:fadeIn .2s ease}
+.story-cat{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,240,96,.4);margin-bottom:6px}
+.story-title{font-family:'Instrument Serif',serif;font-size:19px;color:#fff;line-height:1.3;margin-bottom:10px}
+.story-body{font-size:13px;color:rgba(255,255,255,.55);line-height:1.75}
+.story-body strong{color:rgba(255,255,255,.85)}
+.story-quote{border-left:3px solid rgba(200,240,96,.3);padding:8px 12px;margin:12px 0;font-style:italic;color:rgba(255,255,255,.5);font-size:13px;line-height:1.6}
+.story-close{font-size:11px;color:rgba(200,240,96,.4);margin-top:12px;cursor:pointer}
+
+/* VM Quote */
+.vm-quote{margin:10px 12px 8px;padding:12px 14px;background:rgba(200,240,96,.03);border-left:3px solid rgba(200,240,96,.25);border-radius:0 8px 8px 0}
+.vm-quote-text{font-size:12.5px;color:rgba(255,255,255,.48);line-height:1.7;font-style:italic}
+
+
+/* Likes */
+.prod-like{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.like-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.3);background:none;border:1px solid rgba(255,255,255,.08);padding:3px 9px;border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.like-btn:hover{border-color:rgba(200,240,96,.3);color:rgba(200,240,96,.6)}
+.like-btn.liked{border-color:rgba(200,240,96,.4);color:#c8f060;background:rgba(200,240,96,.06)}
+
+/* Products section */
+.prods-wrap{margin:8px 12px 4px}
+.prods-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:10px;background:rgba(200,240,96,.04);border:1px solid rgba(200,240,96,.12);cursor:pointer;font-size:11px;color:#c8f060;font-weight:600;font-family:'DM Sans',sans-serif}
+.prods-toggle-left{display:flex;align-items:center;gap:8px}
+.prods-toggle-icon{width:20px;height:20px;border-radius:5px;background:rgba(200,240,96,.1);display:flex;align-items:center;justify-content:center;font-size:10px}
+.prods-toggle-arr{font-size:14px;transition:transform .25s;display:inline-block}
+.prods-toggle.open .prods-toggle-arr{transform:rotate(180deg)}
+.prods-list{display:none;padding:4px 0 8px}
+.prod-item{padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.04)}
+.prod-item:last-child{border-bottom:none}
+.prod-axis{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(200,240,96,.35);margin-bottom:2px}
+.prod-text{font-size:12px;color:rgba(255,255,255,.6);line-height:1.5}
+.prod-footer{display:flex;align-items:center;justify-content:flex-end;margin-top:7px}
+.prod-like{display:flex;align-items:center;gap:4px;background:none;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;cursor:pointer;font-size:10px;color:rgba(255,255,255,.35);font-family:'DM Sans',sans-serif;transition:all .15s}
+.prod-like:hover{border-color:rgba(200,240,96,.25);color:rgba(200,240,96,.6)}
+.prod-like.liked{border-color:rgba(200,240,96,.3);color:#c8f060;background:rgba(200,240,96,.05)}
+.prod-like-count{font-size:10px}
+
+/* Buttons */
+.card-btns{padding:8px 12px 4px;display:flex;gap:7px}
+.cs-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:10px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);font-size:11px;color:rgba(255,255,255,.45);cursor:pointer;font-family:'DM Sans',sans-serif}
+.meet-cnt{font-size:9px;background:rgba(255,255,255,.05);padding:1px 5px;border-radius:8px;color:rgba(255,255,255,.2)}
+.sync-btn-wrap{margin:6px 12px 12px}
+.sync-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;padding:11px;border-radius:9px;background:#c8f060;color:#0a0a08;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* CTA */
+.card-cta{padding:0 12px 14px}
+.cta-btn{display:block;width:100%;padding:12px;border-radius:9px;background:rgba(200,240,96,.06);border:1px solid rgba(200,240,96,.12);color:#c8f060;font-size:11px;font-weight:600;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* Popup */
+.p-popup{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+.p-popup.open{display:flex}
+.p-popup-box{background:#17212b;border-radius:16px;padding:24px;max-width:360px;width:100%;border:1px solid rgba(255,255,255,.08)}
+.p-popup-box h3{font-size:16px;font-weight:600;color:#fff;margin-bottom:8px}
+.p-popup-box p{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:18px}
+.p-popup-btn{display:block;width:100%;padding:14px;border-radius:100px;background:#c8f060;color:#0a0a08;font-size:12px;font-weight:700;border:none;cursor:pointer;text-align:center;text-decoration:none;font-family:'DM Sans',sans-serif;margin-bottom:10px}
+.p-popup-close{font-size:11px;color:rgba(255,255,255,.3);text-align:center;cursor:pointer;margin-top:4px}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="pulse-header">
+    <div>
+      <div class="pulse-logo">Pulse</div>
+      <div class="pulse-sub">AI-нетворкинг</div>
+    </div>
+    <button onclick="document.getElementById('invitePopup').classList.add('open')" style="font-size:10px;color:rgba(200,240,96,.5);background:rgba(200,240,96,.06);border:1px solid rgba(200,240,96,.12);padding:4px 12px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif">Создать профиль</button>
+  </div>
+
+  <!-- Card -->
+  <div class="card-wrap">
+    <div class="card-mention">
+      <a href="https://t.me/vladimir_makarov" target="_blank">@vladimir_makarov</a>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:10px;color:rgba(255,255,255,.3)">обновлено 13 марта 2026</span>
+        <span class="tier-badge" style="position:static">GOLD</span>
+      </div>
+    </div>
+
+    <div class="card-identity">
+      <div class="id-av">ВМ</div>
+      <div>
+        <div class="id-name">Владимир Макаров</div>
+        <div class="id-club">
+          <div>
+            <div class="id-club-pre">домашний клуб</div>
+            <div class="id-club-name">Союзники</div>
+          </div>
+        </div>
+        <div class="id-role">Серийный предприниматель · NWC, Pulse, Alpha Tribe</div>
+        <div class="id-geo">Москва · Бали · Кейптаун</div>
+        <div class="id-badges">
+          <span class="ib ib-prod">55 продуктов</span>
+          <span class="ib ib-score">Pulse Score 880</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bio">Строю системы на пересечении AI, нетворкинга и Web3. Основатель NWC, Pulse, Alpha Tribe. Только что закрыл раунд <strong>$2.5M</strong> и получил предоплату по первой сделке токенизации — <strong>$25M под падел-клуб в Марбелье.</strong></div>
+
+    <div class="sep"></div>
+
+    <div class="hooks">
+
+      <div class="hook" onclick="toggleStory(0)">
+        <div class="hook-sq">10</div>
+        <div>
+          <div class="hook-cat">Архитектура</div>
+          <div class="hook-text">Строит продукты на пересечении AI, нетворка и Web3 — видит систему там, где другие видят хаос.</div>
+          <div class="hook-more">как это работает →</div>
+        </div>
+        <div class="hook-arr">›</div>
+      </div>
+      <div class="story-block" id="story-0">
+        <div class="story-cat">Архитектура</div>
+        <div class="story-title">Три системы в одном человеке</div>
+        <div class="story-body">
+          Владимир не строит продукты по отдельности. Каждый новый проект — это узел в единой сети.<br><br>
+          Pulse собирает данные о людях. NWC токенизирует реальные активы. Alpha Tribe объединяет предпринимателей. Три разных домена — но одна архитектурная логика: <strong>ценность создаётся в точках пересечения.</strong><br><br>
+          <div class="story-quote">«Я проектирую архитектуры, где ценность создаётся связями — не продуктами»</div>
+          Именно поэтому его проекты масштабируются иначе — не за счёт продаж, а за счёт сетевого эффекта.
+        </div>
+        <div class="story-close" onclick="toggleStory(0)">← свернуть</div>
+      </div>
+
+      <div class="hook" onclick="toggleStory(1)">
+        <div class="hook-sq">$25M</div>
+        <div>
+          <div class="hook-cat">Сделка</div>
+          <div class="hook-text">Первая сделка токенизации через NWC — падел-клуб в Марбелье. Предоплата уже получена.</div>
+          <div class="hook-more">детали сделки →</div>
+        </div>
+        <div class="hook-arr">›</div>
+      </div>
+      <div class="story-block" id="story-1">
+        <div class="story-cat">Сделка</div>
+        <div class="story-title">$25M под падел-клуб в Марбелье</div>
+        <div class="story-body">
+          Когда большинство думает о токенизации как о крипто-спекуляции, Владимир закрывает первую реальную сделку.<br><br>
+          NWC — долговой инструмент нового поколения. <strong>$25M под падел-клуб в Марбелье</strong> — это не просто сделка. Это доказательство концепции: реальные активы можно токенизировать с институциональной точностью.<br><br>
+          <div class="story-quote">«Мы не продаём токены. Мы создаём новый класс инструментов для девелоперов»</div>
+          Предоплата получена. Следующая сделка уже в работе.
+        </div>
+        <div class="story-close" onclick="toggleStory(1)">← свернуть</div>
+      </div>
+
+      <div class="hook" onclick="toggleStory(2)">
+        <div class="hook-sq">2</div>
+        <div>
+          <div class="hook-cat">Экзит</div>
+          <div class="hook-text">Два экзита за плечами. Знает как готовить бизнес к продаже — изнутри, не из учебника.</div>
+          <div class="hook-more">читать историю →</div>
+        </div>
+        <div class="hook-arr">›</div>
+      </div>
+      <div class="story-block" id="story-2">
+        <div class="story-cat">Экзит</div>
+        <div class="story-title">Продать бизнес — это тоже продукт</div>
+        <div class="story-body">
+          Первый экзит случился раньше, чем Владимир понял что это называется экзитом.<br><br>
+          Второй — был уже осознанным. <strong>Подготовка заняла 18 месяцев.</strong> Финансовая модель, команда без зависимости от основателя, story для покупателя.<br><br>
+          <div class="story-quote">«Бизнес, который нельзя продать — это не актив. Это хобби»</div>
+          Сейчас он помогает другим предпринимателям пройти тот же путь — через Союзники и личный менторинг.
+        </div>
+        <div class="story-close" onclick="toggleStory(2)">← свернуть</div>
+      </div>
+
+      <div class="hook" onclick="toggleStory(3)">
+        <div class="hook-sq">500+</div>
+        <div>
+          <div class="hook-cat">Нетворк</div>
+          <div class="hook-text">Граф возможностей — 500+ предпринимателей, инвесторов, девелоперов из Союзников, Pulse и LAL.</div>
+          <div class="hook-more">про Союзники →</div>
+        </div>
+        <div class="hook-arr">›</div>
+      </div>
+      <div class="story-block" id="story-3">
+        <div class="story-cat">Нетворк</div>
+        <div class="story-title">Нетворк — это не контакты, это система</div>
+        <div class="story-body">
+          В телефоне у многих тысячи контактов. У Владимира — граф, где каждый узел активен.<br><br>
+          <strong>Союзники</strong> — закрытый клуб предпринимателей с выручкой $2-30M. <strong>Pulse</strong> — протокол AI-нетворкинга для клубов. Alpha Tribe — сеть для глобальных digital nomads.<br><br>
+          <div class="story-quote">«Главная мотивация заниматься предпринимательством — взаимодействовать с мощными людьми. Так я основал Pulse»</div>
+          500+ живых контактов в трёх клубах — это не база данных. Это инфраструктура.
+        </div>
+        <div class="story-close" onclick="toggleStory(3)">← свернуть</div>
+      </div>
+
+    </div><!-- /hooks -->
+
+
+    <!-- Products expandable -->
+    <div class="prods-wrap">
+      <button class="prods-toggle" onclick="toggleProds(this)">
+        <div class="prods-toggle-left">
+          
+          <span>29 полезных продуктов/знаний/возможностей</span>
         </div>
         <span class="prods-toggle-arr">↓</span>
       </button>
