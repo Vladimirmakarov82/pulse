@@ -71,6 +71,13 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
 .vm-quote{margin:10px 12px 8px;padding:12px 14px;background:rgba(200,240,96,.03);border-left:3px solid rgba(200,240,96,.25);border-radius:0 8px 8px 0}
 .vm-quote-text{font-size:12.5px;color:rgba(255,255,255,.48);line-height:1.7;font-style:italic}
 
+
+/* Likes */
+.prod-like{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.like-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.3);background:none;border:1px solid rgba(255,255,255,.08);padding:3px 9px;border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.like-btn:hover{border-color:rgba(200,240,96,.3);color:rgba(200,240,96,.6)}
+.like-btn.liked{border-color:rgba(200,240,96,.4);color:#c8f060;background:rgba(200,240,96,.06)}
+
 /* Products section */
 .prods-wrap{margin:8px 12px 4px}
 .prods-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:10px;background:rgba(200,240,96,.04);border:1px solid rgba(200,240,96,.12);cursor:pointer;font-size:11px;color:#c8f060;font-weight:600;font-family:'DM Sans',sans-serif}
@@ -122,7 +129,7 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
       <div class="pulse-logo">Pulse</div>
       <div class="pulse-sub">AI-нетворкинг</div>
     </div>
-    <a href="https://t.me/PulseProfile_bot" target="_blank" style="font-size:10px;color:rgba(200,240,96,.5);background:rgba(200,240,96,.06);border:1px solid rgba(200,240,96,.12);padding:4px 12px;border-radius:6px;">Создать карточку</a>
+    <button onclick="document.getElementById('invitePopup').classList.add('open')" style="font-size:10px;color:rgba(200,240,96,.5);background:rgba(200,240,96,.06);border:1px solid rgba(200,240,96,.12);padding:4px 12px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif">Создать профиль</button>
   </div>
 
   <!-- Card -->
@@ -257,25 +264,35 @@ html,body{background:#0e0e0c;font-family:'DM Sans',sans-serif;color:rgba(255,255
         <span class="prods-toggle-arr">↓</span>
       </button>
       <div class="prods-list" id="prodsList">
-        <div class="prod-item"><div class="prod-axis">Архитектура систем</div><div class="prod-text">Проектирование бизнес-архитектур, где ценность создаётся через связи, а не продукты</div>
+        <div class="prod-item"><div class="prod-axis">Архитектура систем
+        <div class="prod-like"><button class="like-btn" id="like-0" onclick="toggleLike(0)">♡ <span id="lc-0">0</span></button></div></div><div class="prod-text">Проектирование бизнес-архитектур, где ценность создаётся через связи, а не продукты</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Токенизация активов · NWC</div><div class="prod-text">Долговой инструмент нового поколения — $25M под реальные активы. Структурирование сделок с девелоперами</div>
+        <div class="prod-item"><div class="prod-axis">Токенизация активов · NWC
+        <div class="prod-like"><button class="like-btn" id="like-1" onclick="toggleLike(1)">♡ <span id="lc-1">0</span></button></div></div><div class="prod-text">Долговой инструмент нового поколения — $25M под реальные активы. Структурирование сделок с девелоперами</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">AI-нетворкинг · Pulse</div><div class="prod-text">Протокол интеллектуального нетворкинга для клубов — AI находит асимметрию между участниками</div>
+        <div class="prod-item"><div class="prod-axis">AI-нетворкинг · Pulse
+        <div class="prod-like"><button class="like-btn" id="like-2" onclick="toggleLike(2)">♡ <span id="lc-2">0</span></button></div></div><div class="prod-text">Протокол интеллектуального нетворкинга для клубов — AI находит асимметрию между участниками</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Граф возможностей</div><div class="prod-text">Прямой доступ к 500+ предпринимателям, инвесторам, девелоперам из Союзников, Pulse и LAL</div>
+        <div class="prod-item"><div class="prod-axis">Граф возможностей
+        <div class="prod-like"><button class="like-btn" id="like-3" onclick="toggleLike(3)">♡ <span id="lc-3">0</span></button></div></div><div class="prod-text">Прямой доступ к 500+ предпринимателям, инвесторам, девелоперам из Союзников, Pulse и LAL</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Два экзита</div><div class="prod-text">Опыт подготовки и продажи бизнеса — финансовая модель, команда без основателя, story для покупателя</div>
+        <div class="prod-item"><div class="prod-axis">Два экзита
+        <div class="prod-like"><button class="like-btn" id="like-4" onclick="toggleLike(4)">♡ <span id="lc-4">0</span></button></div></div><div class="prod-text">Опыт подготовки и продажи бизнеса — финансовая модель, команда без основателя, story для покупателя</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Привлечение инвестиций</div><div class="prod-text">Закрытый раунд $2.5M. Знает как структурировать сделку и работать с инвесторами изнутри</div>
+        <div class="prod-item"><div class="prod-axis">Привлечение инвестиций
+        <div class="prod-like"><button class="like-btn" id="like-5" onclick="toggleLike(5)">♡ <span id="lc-5">0</span></button></div></div><div class="prod-text">Закрытый раунд $2.5M. Знает как структурировать сделку и работать с инвесторами изнутри</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Нейромаркетинг · EMONOMY</div><div class="prod-text">Нейроаналитика поведения потребителей — данные для бизнес-решений вместо интуиции</div>
+        <div class="prod-item"><div class="prod-axis">Нейромаркетинг · EMONOMY
+        <div class="prod-like"><button class="like-btn" id="like-6" onclick="toggleLike(6)">♡ <span id="lc-6">0</span></button></div></div><div class="prod-text">Нейроаналитика поведения потребителей — данные для бизнес-решений вместо интуиции</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Web3 изнутри операций</div><div class="prod-text">Практический опыт работы с DeFi, институциональными партнёрами и токен-структурами</div>
+        <div class="prod-item"><div class="prod-axis">Web3 изнутри операций
+        <div class="prod-like"><button class="like-btn" id="like-7" onclick="toggleLike(7)">♡ <span id="lc-7">0</span></button></div></div><div class="prod-text">Практический опыт работы с DeFi, институциональными партнёрами и токен-структурами</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Доступ в Союзники</div><div class="prod-text">Партнёрство и co-founder возможности внутри закрытого клуба предпринимателей $2-30M выручки</div>
+        <div class="prod-item"><div class="prod-axis">Доступ в Союзники
+        <div class="prod-like"><button class="like-btn" id="like-8" onclick="toggleLike(8)">♡ <span id="lc-8">0</span></button></div></div><div class="prod-text">Партнёрство и co-founder возможности внутри закрытого клуба предпринимателей $2-30M выручки</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
-        <div class="prod-item"><div class="prod-axis">Кочевой образ жизни</div><div class="prod-text">Москва · Бали · Кейптаун — нетворк и синергия между разными предпринимательскими культурами</div>
+        <div class="prod-item"><div class="prod-axis">Кочевой образ жизни
+        <div class="prod-like"><button class="like-btn" id="like-9" onclick="toggleLike(9)">♡ <span id="lc-9">0</span></button></div></div><div class="prod-text">Москва · Бали · Кейптаун — нетворк и синергия между разными предпринимательскими культурами</div>
         <div class="prod-footer"><button class="prod-like" onclick="toggleLike(this)">♡ <span class="prod-like-count">0</span></button></div></div>
       </div>
     </div>
@@ -337,6 +354,12 @@ function toggleLike(btn) {
     btn.classList.add('liked');
     btn.innerHTML = '♥ <span class="prod-like-count">' + (count + 1) + '</span>';
   }
+}
+
+var likedItems = {};
+function toggleLike(idx) {
+  // Check if "logged in" — on this page nobody is logged in, so always show popup
+  document.getElementById('invitePopup').classList.add('open');
 }
 
 function toggleProds(btn) {
