@@ -60,54 +60,6 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
 /* ── MOBILE ── */
 
 /* ── CARD SPOTLIGHT ANIMATION ── */
-.card-wrapper{position:relative;display:inline-block;width:100%}
-.card-spotlight{
-  position:absolute;
-  /* "Домашний клуб · Союзники" в карточке — примерно 8% от верха, 15% от левого края */
-  top:8.5%;
-  left:12%;
-  width:55%;
-  height:6%;
-  pointer-events:none;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:4px;
-}
-.spotlight-ring{
-  position:absolute;
-  inset:-6px -10px;
-  border-radius:8px;
-  border:2px solid rgba(255,210,0,0.9);
-  box-shadow:0 0 0 0 rgba(255,210,0,0.6);
-  animation:spotlightPulse 2s ease-in-out infinite;
-}
-@keyframes spotlightPulse{
-  0%{box-shadow:0 0 0 0 rgba(255,210,0,0.7);border-color:rgba(255,210,0,0.9)}
-  50%{box-shadow:0 0 0 8px rgba(255,210,0,0);border-color:rgba(255,210,0,0.4)}
-  100%{box-shadow:0 0 0 0 rgba(255,210,0,0);border-color:rgba(255,210,0,0.9)}
-}
-.spotlight-label{
-  position:absolute;
-  top:-26px;
-  left:0;
-  background:rgba(255,210,0,0.95);
-  color:#1a1a1a;
-  font-size:10px;
-  font-weight:700;
-  padding:3px 8px;
-  border-radius:100px;
-  white-space:nowrap;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
-  animation:labelFade 2s ease-in-out infinite;
-  box-shadow:0 2px 8px rgba(255,210,0,0.4);
-}
-@keyframes labelFade{
-  0%,100%{opacity:1;transform:translateY(0)}
-  50%{opacity:0.6;transform:translateY(-2px)}
-}
-
 @media(max-width:768px){
   .block1{grid-template-columns:1fr;gap:24px;padding:32px 20px}
   .block1 .card-col{order:2}
@@ -159,10 +111,7 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
     <div class="card-col">
       <div class="card-wrapper">
         <img src="./card_vm.png" alt="Владимир Макаров" class="card-img">
-        <div class="card-spotlight" id="card-spotlight">
-          <div class="spotlight-ring"></div>
-          <div class="spotlight-label">домашний клуб</div>
-        </div>
+  
       </div>
     </div>
   </div>
