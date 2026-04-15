@@ -2796,11 +2796,9 @@ function handleHashRoute() {
   var hash = window.location.hash.replace('#', '').trim();
   if (!hash) return;
 
-  // Открыть профиль через openPo — ищет в participants + isParticipants
-  // Для technoParticipants — скроллим к карточке в ленте
   setTimeout(function() {
-    // Сначала рендерим нужный клуб где живёт этот pid
-    var foundClub = -1;
+    // Найти клуб участника и переключиться на него
+    var foundClub = 0;
     if (typeof clubs !== 'undefined') {
       clubs.forEach(function(club, idx) {
         (club.members || []).forEach(function(p) {
@@ -2808,12 +2806,25 @@ function handleHashRoute() {
         });
       });
     }
-    if (foundClub >= 0) switchClub(foundClub);
+    switchClub(foundClub);
 
-    // Открываем профиль
+    // Прокрутить к карточке в ленте (без открытия старого оверлея)
     setTimeout(function() {
-      openPo(hash);
-    }, 400);
+      // Ищем карточку по data-pid или по тексту handle
+      var cards = document.querySelectorAll('.card-wrap');
+      var target = null;
+      cards.forEach(function(card) {
+        var link = card.querySelector('a[href*="' + hash + '"]');
+        if (link) target = card;
+      });
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Лёгкая подсветка
+        target.style.transition = 'box-shadow .4s';
+        target.style.boxShadow = '0 0 0 2px rgba(200,240,96,.5)';
+        setTimeout(function() { target.style.boxShadow = ''; }, 2000);
+      }
+    }, 500);
   }, 600);
 }
 
