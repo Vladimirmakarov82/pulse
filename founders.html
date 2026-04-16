@@ -34,6 +34,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .club-chip{display:flex;align-items:center;gap:6px;background:#f8f9fa;border:1.5px solid #e5e7eb;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600;color:#1e293b}
 .club-chip .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
 .club-chip.empty{border-style:dashed;border-color:#d1d5db}
+.club-chip.pending{border-color:#f59e0b;border-style:dashed;color:#92400e;background:#fffbeb}
+.dot-pending{display:inline-block;width:6px;height:6px;border-radius:50%;background:#f59e0b;flex-shrink:0}
 .club-chip.empty .dot{background:#d1d5db}
 .club-chip.empty span{color:#94a3b8}
 .cta-btn{display:inline-flex;align-items:center;gap:8px;background:#22c55e;color:#fff;border:none;padding:14px 28px;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none}
@@ -111,8 +113,11 @@ footer{background:#06060f;color:#94a3b8;padding:36px 24px;text-align:center;font
       <div class="clubs-row">
         <div class="club-chip"><span class="dot"></span>Технорегата</div>
         <div class="club-chip"><span class="dot"></span>Investstream</div>
+        <div class="club-chip pending"><span class="dot-pending"></span>Бизнес-клуб DAO</div>
+        <div class="club-chip pending"><span class="dot-pending"></span>On-chain girls</div>
         <div class="club-chip empty"><span class="dot"></span><span data-i18n="your_club">Твой клуб</span></div>
       </div>
+      <div style="font-size:11px;color:#92400e;margin:-4px 0 8px;display:flex;align-items:center;gap:5px"><span style="width:6px;height:6px;border-radius:50%;background:#f59e0b;display:inline-block"></span>на подключении</div>
       <button class="cta-btn" onclick="openApply()">
         <span data-i18n="cta_btn">Подать заявку →</span>
       </button>
