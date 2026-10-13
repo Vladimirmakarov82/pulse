@@ -1,0 +1,11 @@
+aiventurebuilder.xyz {
+	root * /var/www/aiventurebuilder
+	file_server
+	encode zstd gzip
+	@git path /.git/* /deploy.sh /*.caddy /README.md /vercel.json
+	respond @git 404
+	header Cache-Control "public, max-age=60"
+}
+www.aiventurebuilder.xyz {
+	redir https://aiventurebuilder.xyz{uri} permanent
+}
