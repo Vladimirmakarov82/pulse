@@ -2,7 +2,7 @@ aiventurebuilder.xyz {
 	root * /var/www/aiventurebuilder
 	file_server
 	encode zstd gzip
-	@git path /.git/* /deploy.sh /*.caddy /README.md /vercel.json
+	@git path /.git/* /deploy.sh /install.sh /*.caddy /README.md
 	respond @git 404
 	header Cache-Control "public, max-age=60"
 }
