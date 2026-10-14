@@ -476,7 +476,7 @@ button{font:inherit}
       <div class="pj-l">
         <div class="no"><span>03 · AdTech</span><span class="st">Прибыль $1,7 млн</span></div>
         <h3>MAST</h3>
-        <p class="one">AI-first монетизация сайтов. Агенты подключают паблишеров к&nbsp;рекламным сетям и&nbsp;ведут AdOps без&nbsp;людей.</p>
+        <p class="one">AI-first монетизация сайтов.<br>Клиенты — паблишеры, владельцы сайтов. Они зарабатывают на&nbsp;30–80% больше за&nbsp;счет технологий MAST.<br>Ноль сотрудников: всю работу делают AI&#8209;агенты MAST.</p>
         <div class="mkt"><b class="num"><span class="cu" data-to="134.8" data-pre="$" data-dec="1">$134,8</span><small>млрд</small></b><span>программатик-реклама только в США, 2024</span></div>
         <div class="tags">
           <div class="tag"><i>Трекшн</i>Прибыль $1,7&nbsp;млн, оценка $7&nbsp;млн</div>
@@ -484,13 +484,13 @@ button{font:inherit}
         </div>
       </div>
       <div class="pj-r">
-        <svg id="v3" viewBox="0 0 640 470" aria-label="AI-агент подключает сайты к рекламным сетям, доход паблишеров растет">
+        <svg id="v3" viewBox="0 0 640 470" aria-label="MAST подключает сайты паблишеров к рекламным сетям Google, Amazon, Microsoft, Magnite и Taboola, доход паблишеров растет">
           <g class="svgl" fill="#0B0B0D" fill-opacity=".7"><text x="20" y="60">САЙТЫ ПАБЛИШЕРОВ</text><text x="620" y="60" text-anchor="end">РЕКЛАМНЫЕ СЕТИ</text></g>
           <g id="m3p" fill="none" stroke="#0B0B0D" stroke-opacity=".18" stroke-width="1.2"></g>
           <g id="m3t"></g>
           <g id="m3s"></g>
           <g id="m3d" fill="#0B0B0D"></g>
-          <g transform="translate(330 200)"><circle r="56" fill="#0B0B0D" fill-opacity=".08" id="m3halo"/><circle r="40" fill="#0B0B0D"/><text class="svgl" text-anchor="middle" dy="-2" fill="#FFB800" font-weight="600">AI</text><text class="svgl" text-anchor="middle" dy="12" fill="#FFB800">ADOPS</text></g>
+          <g transform="translate(330 200)"><circle r="74" fill="#0B0B0D" fill-opacity=".08" id="m3halo"/><circle r="58" fill="#0B0B0D"/><text text-anchor="middle" y="-10" fill="#FFB800" font-size="22" font-weight="700" letter-spacing="-.02em" style="font-family:var(--f);font-stretch:112%">MAST</text><g fill="#FFB800" fill-opacity=".85" text-anchor="middle" font-size="8" letter-spacing=".08em" style="font-family:var(--m)"><text y="8">PUBLISHER</text><text y="19">MONETISATION</text><text y="30">PLATFORM</text></g></g>
           <g id="m3b"></g>
           <text x="20" y="460" class="svgl" fill="#0B0B0D" fill-opacity=".7">ДОХОД ПАБЛИШЕРОВ</text>
           <g transform="translate(620 460)"><text class="svgv" font-size="34" fill="#0B0B0D" text-anchor="end" y="-30" id="m3c">0</text><text class="svgl" fill="#0B0B0D" fill-opacity=".7" text-anchor="end">САЙТОВ ПОДКЛЮЧЕНО · ДЕМО</text></g>
@@ -665,10 +665,10 @@ button{font:inherit}
   var M3={x:330,y:200},TL=[],m3t=$('m3t'),m3p=$('m3p'),m3d=$('m3d'),m3c=$('m3c'),c3=0;
   for(var ty=0;ty<6;ty++)for(var tx2=0;tx2<5;tx2++){var x0=20+tx2*38,y0=82+ty*48;var r=el('rect',{x:x0,y:y0,width:30,height:36,rx:6,fill:'#0B0B0D','fill-opacity':.12},m3t);
     el('rect',{x:x0+5,y:y0+6,width:20,height:4,rx:2,fill:'#FFB800','fill-opacity':.0,class:'tb'},m3t);
-    var pth=el('path',{d:'M'+(x0+30)+' '+(y0+18)+' C'+(x0+130)+' '+(y0+18)+','+(M3.x-110)+' '+M3.y+','+(M3.x-40)+' '+M3.y},m3p);TL.push({r:r,p:pth,L:pth.getTotalLength(),on:0})}
-  var SSP=[['GOOGLE ADX',96],['PREBID',168],['YANDEX',240],['MYTARGET',312]],SP=[];
+    var pth=el('path',{d:'M'+(x0+30)+' '+(y0+18)+' C'+(x0+130)+' '+(y0+18)+','+(M3.x-110)+' '+M3.y+','+(M3.x-58)+' '+M3.y},m3p);TL.push({r:r,p:pth,L:pth.getTotalLength(),on:0})}
+  var SSP=[['GOOGLE ADX',90],['AMAZON APS',150],['MICROSOFT ADS',210],['MAGNITE',270],['TABOOLA',330]],SP=[];
   SSP.forEach(function(s){var g=el('g',{transform:'translate(480 '+(s[1]-17)+')'},$('m3s'));var bg=el('rect',{width:140,height:34,rx:17,fill:'#0B0B0D'},g);el('text',{x:16,y:22,class:'svgl',fill:'#FFB800'},g).textContent=s[0];
-    var pth=el('path',{d:'M'+(M3.x+40)+' '+M3.y+' C'+(M3.x+100)+' '+M3.y+',420 '+s[1]+',480 '+s[1]},m3p);SP.push({p:pth,L:pth.getTotalLength(),bg:bg})});
+    var pth=el('path',{d:'M'+(M3.x+58)+' '+M3.y+' C'+(M3.x+100)+' '+M3.y+',420 '+s[1]+',480 '+s[1]},m3p);SP.push({p:pth,L:pth.getTotalLength(),bg:bg})});
   var BR=[];for(var bi2=0;bi2<16;bi2++)BR.push(el('rect',{x:20+bi2*22,y:430,width:16,height:0,rx:3,fill:'#0B0B0D'},$('m3b')));
   var MD=[],mAcc=0,mHold=0;
   function v3(dt,t){mAcc+=dt;
@@ -678,7 +678,7 @@ button{font:inherit}
     MD=MD.filter(function(o){o.k+=dt*(o.ph?.0016:.0012);if(o.k>=1){if(o.ph){o.c.remove();return false}var s=SP[Math.floor(Math.random()*SP.length)];o.ph=1;o.k=0;o.p=s.p;o.L=s.L;s.bg.setAttribute('fill','#E8222B');setTimeout(function(){s.bg.setAttribute('fill','#0B0B0D')},260)}
       var pt=o.p.getPointAtLength(o.k*o.L);o.c.setAttribute('cx',pt.x);o.c.setAttribute('cy',pt.y);return true});
     BR.forEach(function(b,i){var h=8+(c3/TL.length)*(18+i*5.2)*(0.85+0.15*Math.sin(t*.004+i));b.setAttribute('y',430-h);b.setAttribute('height',h)});
-    $('m3halo').setAttribute('r',56+8*Math.sin(t*.003))}
+    $('m3halo').setAttribute('r',72+8*Math.sin(t*.003))}
   v3(0,0);
 
   /* V4 FLOORSTREET */
