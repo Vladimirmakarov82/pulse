@@ -245,6 +245,22 @@ button{font:inherit}
 @media (max-width:900px){.join .l,.join .r{grid-column:1/-1}}
 @media (max-width:460px){.slots5{gap:6px}.slots5 div{border-radius:14px;padding:6px;font-size:8.5px}.slots5 .e::before{border-radius:14px}}
 
+.fv{grid-column:span 12;gap:clamp(16px,2vw,24px)}
+.fv-h{display:grid;grid-template-columns:repeat(12,1fr);gap:12px clamp(16px,2vw,28px);align-items:end}
+.fv-h .l{grid-column:1/7;display:flex;flex-direction:column;gap:12px;min-width:0}
+.fv-h .r{grid-column:7/13;display:flex;flex-direction:column;gap:14px;align-items:flex-start;min-width:0}
+.fv-ctl{display:flex;flex-wrap:wrap;gap:8px}
+.fv-ctl .chip i{transition:background .3s}
+.fv-ctl .chip[aria-pressed="false"] i{background:var(--mute)}
+.fv-v{position:relative;border-radius:var(--r-m);overflow:hidden;background:var(--bg);aspect-ratio:16/9;border:1px solid var(--line)}
+.fv-v video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;cursor:pointer;background:var(--bg)}
+.fv-play{position:absolute;left:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 10px 0 24px;border-radius:999px;background:#FF4D00;color:#fff;border:0;font-weight:600;font-size:15px;cursor:pointer;transition:opacity .3s,transform .12s}
+.fv-play:active{transform:scale(.97)}
+.fv-play i{font-style:normal;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:12px;transition:transform .4s var(--ease-btn)}
+.fv-play:hover i{transform:rotate(-45deg)}
+.fv.on .fv-play{opacity:0;pointer-events:none}
+@media (max-width:860px){.fv-h .l,.fv-h .r{grid-column:1/-1}}
+@media (max-width:460px){.fv-play{min-height:46px;padding-left:18px;font-size:14px}.fv-play i{width:30px;height:30px}}
 .mk-orb{transform-origin:60px 60px;animation:mk 9s linear infinite}@keyframes mk{to{transform:rotate(360deg)}}
 .still *,.still *::before,.still *::after{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
@@ -269,7 +285,7 @@ button{font:inherit}
 
   <section class="hero" id="top">
     <div class="h-left">
-      <div class="kick mono"><span class="dot"></span>Портфель · <b>4 из 5 мест заняты</b></div>
+      <div class="kick mono"><span class="dot"></span>Портфель · <b>3 из 5 мест заняты</b></div>
       <h1 class="display" id="h1"><span class="acc">AI</span> Venture <span class="lt">Builder</span></h1>
       <p class="lead">Собираем портфель из&nbsp;<b>5 международных IT-компаний</b>. Цель&nbsp;— <b>$500&nbsp;млн</b> капитализации к&nbsp;2029&nbsp;году.</p>
       <div class="kpis">
@@ -296,14 +312,14 @@ button{font:inherit}
           <g transform="translate(595 86)"><circle r="12" fill="#FF4D00"/><circle r="5" fill="#fff"/></g>
           <g transform="translate(70 420)"><circle class="here" r="10" fill="none" stroke="var(--ink)" stroke-width="2"/><circle class="here h2" r="10" fill="none" stroke="var(--ink)" stroke-width="2"/><circle r="10" fill="var(--ink)"/></g>
           <g class="tcards">
-            <g class="tc" transform="translate(56 246)"><rect width="230" height="78" rx="14" fill="var(--ink)"/><text x="16" y="26" class="svgl" fill="#FF4D00">СЕГОДНЯ · 2026 · 4 ПРОЕКТА</text><text x="16" y="60" class="svgv" font-size="28" fill="var(--bg)">$27,5 млн</text></g>
+            <g class="tc" transform="translate(56 246)"><rect width="230" height="78" rx="14" fill="var(--ink)"/><text x="16" y="26" class="svgl" fill="#FF4D00">СЕГОДНЯ · 2026 · 3 ПРОЕКТА</text><text x="16" y="60" class="svgv" font-size="28" fill="var(--bg)">$27,5 млн</text></g>
             <g class="tc" transform="translate(424 300)"><rect width="206" height="78" rx="14" fill="var(--paper)" stroke="var(--line)"/><text x="16" y="26" class="svgl" fill="var(--mute)">2028 · 5 КОМПАНИЙ</text><text x="16" y="60" class="svgv" font-size="28" fill="var(--ink)">$250 млн</text></g>
             <g class="tc" transform="translate(362 128)"><rect width="206" height="78" rx="14" fill="#FF4D00"/><text x="16" y="26" class="svgl" fill="#fff" fill-opacity=".9">2029 · ЦЕЛЬ ПОРТФЕЛЯ</text><text x="16" y="60" class="svgv" font-size="28" fill="#fff">$500 млн</text></g>
           </g>
           <g class="svgl" fill="var(--mute)" text-anchor="middle"><text x="70" y="474">2026</text><text x="245" y="474">2027</text><text x="420" y="474">2028</text><text x="595" y="474">2029</text></g>
         </svg>
         <div class="tmiles">
-          <div class="now"><span class="mono">Сегодня · 2026</span><b class="num">$27,5 млн</b><span class="mono">4 проекта</span></div>
+          <div class="now"><span class="mono">Сегодня · 2026</span><b class="num">$27,5 млн</b><span class="mono">3 проекта</span></div>
           <div><span class="mono">2028 · цель</span><b class="num">$250 млн</b><span class="mono">5 компаний</span></div>
           <div class="top"><span class="mono">2029 · цель</span><b class="num">$500 млн</b><span class="mono">×18</span></div>
         </div>
@@ -367,6 +383,26 @@ button{font:inherit}
           </svg>
         </div>
       </article>
+      <article class="fc fv" id="tailfilm">
+        <div class="fv-h">
+          <div class="l">
+            <span class="n">Хвост рынка · 30 секунд</span>
+            <h3>Заходим в&nbsp;рынок с&nbsp;хвоста</h3>
+          </div>
+          <div class="r">
+            <p>Ядро рынка держат гиганты. Хвост им убыточен. AI-агенты делают хвост прибыльным, и&nbsp;оттуда проект растет к&nbsp;ядру.</p>
+            <div class="fv-ctl">
+              <button class="chip" id="tfp" type="button" aria-pressed="false"><i></i>Ролик: пауза</button>
+              <button class="chip" id="tfs" type="button" aria-pressed="false"><i></i>Звук: выкл</button>
+              <button class="chip" id="tff" type="button">На весь экран</button>
+            </div>
+          </div>
+        </div>
+        <div class="fv-v">
+          <video id="tfv" muted playsinline loop preload="none" poster="video/tail-light.jpg" aria-label="Ролик: AI-стартап заходит в рынок с хвоста и движется к ядру"></video>
+          <button class="fv-play" id="tfo" type="button">Смотреть ролик <i aria-hidden="true">▶</i></button>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -417,43 +453,16 @@ button{font:inherit}
     <div class="port-h">
       <h2 class="mask">Порт<span>фель</span></h2>
       <div class="port-k">
-        <div><b class="num">4</b><span>проекта</span></div>
+        <div><b class="num">3</b><span>проекта</span></div>
         <div><b class="num">$27,5 млн</b><span>бумажная капитализация</span></div>
-        <div><b class="num">4 из 5</b><span>мест в портфеле</span></div>
+        <div><b class="num">3 из 5</b><span>мест в портфеле</span></div>
       </div>
     </div>
 
-    <article class="pj pv" id="pj1">
-      <span class="bgn" aria-hidden="true">HR</span>
-      <div class="pj-l">
-        <div class="no"><span>01 · HR-tech</span><span class="st">Pre-seed</span></div>
-        <h3>Vertex</h3>
-        <p class="one">AI-first рекрутинг: найм вместе с&nbsp;обучением. Кандидат дорастает до&nbsp;вакансии уровнем выше и&nbsp;закрывает ее.</p>
-        <div class="mkt"><b class="num"><span class="cu" data-to="639" data-pre="$">$639</span><small>млрд</small></b><span>мировой рынок найма и стаффинга, 2025</span></div>
-        <div class="tags">
-          <div class="tag"><i>Порог</i>Сеть отраслевых экспертов и&nbsp;AI-консультант кандидата</div>
-          <div class="tag"><i>Спрос</i>Кандидатам не&nbsp;хватает навыков до&nbsp;нужной вакансии</div>
-        </div>
-      </div>
-      <div class="pj-r">
-        <svg id="v1" viewBox="0 0 640 460" aria-label="Кандидаты проходят AI-консультанта и обучение и закрывают вакансии уровнем выше">
-          <g stroke="#fff" stroke-opacity=".22"><line x1="20" y1="380" x2="620" y2="380"/><line x1="20" y1="230" x2="620" y2="230"/><line x1="20" y1="80" x2="620" y2="80"/></g>
-          <g class="svgl" fill="#fff" fill-opacity=".7"><text x="20" y="370">УРОВЕНЬ КАНДИДАТА</text><text x="20" y="220">НАВЫКИ ПОСЛЕ ОБУЧЕНИЯ</text><text x="20" y="70">ВАКАНСИЯ ВЫШЕ</text></g>
-          <path id="v1p" d="M20 330 L190 330 C250 330,260 330,270 300 C300 200,330 180,400 180 C470 180,480 140,500 110 L520 90" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6"/>
-          <g transform="translate(220 330)"><circle r="40" fill="#fff" fill-opacity=".14"/><circle r="26" fill="#fff"/><text class="svgl" text-anchor="middle" dy="4" fill="#5542FF" font-weight="600">AI</text></g>
-          <text x="220" y="402" class="svgl" fill="#fff" text-anchor="middle">AI-КОНСУЛЬТАНТ</text>
-          <g transform="translate(400 180)"><rect x="-58" y="-22" width="116" height="44" rx="22" fill="#fff" fill-opacity=".16" stroke="#fff" stroke-opacity=".5"/><text class="svgl" text-anchor="middle" dy="4" fill="#fff">ОБУЧЕНИЕ</text></g>
-          <g id="slots"></g>
-          <g id="v1d" fill="#fff"></g>
-          <g transform="translate(620 430)"><text class="svgv" font-size="40" fill="#fff" text-anchor="end" id="v1c">0</text><text class="svgl" fill="#fff" fill-opacity=".75" x="0" y="22" text-anchor="end">ВАКАНСИЙ ЗАКРЫТО · ДЕМО</text></g>
-        </svg>
-      </div>
-    </article>
-
-    <article class="pj pg" id="pj2">
+        <article class="pj pg" id="pj2">
       <span class="bgn" aria-hidden="true">VISA</span>
       <div class="pj-l">
-        <div class="no"><span>02 · Travel-tech</span><span class="st">Старт: Сингапур</span></div>
+        <div class="no"><span>01 · Travel-tech</span><span class="st">Старт: Сингапур</span></div>
         <h3>AI-first Global Visa Center</h3>
         <p class="one">Визовый центр на&nbsp;AI-агентах. Следующий шаг — AI-консьерж путешествий: места, маршруты и&nbsp;брони в&nbsp;одном чате.</p>
         <div class="mkt"><b class="num"><span class="cu" data-to="15.2" data-pre="$" data-dec="1">$15,2</span><small>млрд → $27,5 млрд к&nbsp;2034</small></b><span>мировой рынок визового сервиса, 2025</span></div>
@@ -474,7 +483,7 @@ button{font:inherit}
     <article class="pj py" id="pj3">
       <span class="bgn" aria-hidden="true">MAST</span>
       <div class="pj-l">
-        <div class="no"><span>03 · AdTech</span><span class="st">Прибыль $1,7 млн</span></div>
+        <div class="no"><span>02 · AdTech</span><span class="st">Прибыль $1,7 млн</span></div>
         <h3>MAST</h3>
         <p class="one">AI-first монетизация сайтов.<br>Клиенты — паблишеры, владельцы сайтов. Они зарабатывают на&nbsp;30–80% больше за&nbsp;счет технологий MAST.<br>Ноль сотрудников: всю работу делают AI&#8209;агенты MAST.</p>
         <div class="mkt"><b class="num"><span class="cu" data-to="134.8" data-pre="$" data-dec="1">$134,8</span><small>млрд</small></b><span>программатик-реклама только в США, 2024</span></div>
@@ -501,7 +510,7 @@ button{font:inherit}
     <article class="pj pf" id="pj4">
       <span class="bgn" aria-hidden="true">FLOOR</span>
       <div class="pj-l">
-        <div class="no"><span>04 · Web3 · RWA</span><span class="st">Robinhood Chain</span></div>
+        <div class="no"><span>03 · Web3 · RWA</span><span class="st">Robinhood Chain</span></div>
         <h3>FloorStreet</h3>
         <p class="one">10&nbsp;000 NFT-зданий: от&nbsp;гаража до&nbsp;небоскреба. Здание растет через слияние и&nbsp;получает ETH из&nbsp;пулов токенизированных акций США.</p>
         <div class="mkt"><b class="num"><span class="cu" data-to="20" data-pre="$">$20</span><small>млрд+</small></b><span>реальные активы в ончейне, 2025</span></div>
@@ -526,12 +535,12 @@ button{font:inherit}
   <section class="join" id="join">
     <div class="l">
       <span class="mono" style="color:#FF4D00">Портфель закрывается на пяти</span>
-      <h2 class="mask">Четыре места заняты. <span>Осталось одно</span></h2>
+      <h2 class="mask">Три места заняты. <span>Осталось два</span></h2>
       <p>Пятая компания закрывает портфель. Дальше состав не&nbsp;меняется до&nbsp;цели $500&nbsp;млн.</p>
       <a class="jbtn" href="https://t.me/vladimir82makarov" target="_blank" rel="noopener">Обсудить участие <i aria-hidden="true">→</i></a>
     </div>
     <div class="r">
-      <div class="slots5"><div class="sa">Vertex</div><div class="sb">Visa Center</div><div class="sc">MAST</div><div class="sd">Floor Street</div><div class="e">Место 5</div></div>
+      <div class="slots5"><div class="sb">Visa Center</div><div class="sc">MAST</div><div class="sd">Floor Street</div><div class="e">Место 4</div><div class="e">Место 5</div></div>
     </div>
   </section>
 
@@ -638,14 +647,6 @@ button{font:inherit}
     climb.setAttribute('cx',a[0]+(b[0]-a[0])*f);climb.setAttribute('cy',a[1]+(b[1]-a[1])*f);sts.forEach(function(r,j){r.setAttribute('fill-opacity',seg>j*2?1:.28)})}
   stairs(5999);
 
-  /* V1 HR */
-  var v1p=$('v1p'),L1=v1p.getTotalLength(),D1=[],v1c=$('v1c'),c1=0,SL=[];
-  for(var s=0;s<4;s++)SL.push(el('rect',{x:470+s*38,y:40,width:30,height:30,rx:8,fill:'#fff','fill-opacity':.18,stroke:'#fff','stroke-opacity':.5},$('slots')));
-  for(var d=0;d<7;d++)D1.push({c:el('circle',{r:7},$('v1d')),k:d/7});
-  function v1(dt){D1.forEach(function(o){o.k+=dt*.00009;if(o.k>1){o.k-=1;c1++;v1c.textContent=c1;var sl=SL[c1%4];sl.setAttribute('fill-opacity',1);setTimeout(function(){sl.setAttribute('fill-opacity',.18)},700)}
-      var pt=v1p.getPointAtLength(o.k*L1);o.c.setAttribute('cx',pt.x);o.c.setAttribute('cy',pt.y);o.c.setAttribute('r',o.k<.35?6:o.k<.7?7.5:9)})}
-  v1(0);
-
   /* V2 VISA */
   var C={x:320,y:250},CT=[['JP',150,90],['GB',90,230],['US',130,390],['AE',300,430],['AU',500,400],['DE',550,240],['FR',480,90],['KR',320,60]];
   for(var gx=16;gx<640;gx+=32)for(var gy=20;gy<480;gy+=32){var dd=Math.hypot(gx-C.x,gy-C.y);if(dd<240&&dd>70)el('circle',{cx:gx,cy:gy,r:1.4,fill:'#fff','fill-opacity':.22},$('v2grid'))}
@@ -705,10 +706,10 @@ button{font:inherit}
   var tr=$('tr'),tx=0,boost=0,lastY=scrollY;
   function tick(dt){var y=scrollY;boost+=(Math.min(40,Math.abs(y-lastY))*.08-boost)*.08;lastY=y;tx-=(.6+boost)*dt*.06;var w=tr.scrollWidth/2;if(w&&-tx>w)tx+=w;tr.style.transform='translateX('+tx+'px)'}
 
-  ['traj','tailsvg','wallsvg','pulsesvg','chart','stsvg','v1','v2','v3','v4'].forEach(function(id){var e=$(id);if(e&&io)io.observe(e)});
+  ['traj','tailsvg','wallsvg','pulsesvg','chart','stsvg','v2','v3','v4'].forEach(function(id){var e=$(id);if(e&&io)io.observe(e)});
   var last=0;
   function loop(t){var dt=Math.min(50,t-(last||t));last=t;
-    if(!still){if(on('traj'))traj(t);if(on('tailsvg'))tail(t);if(on('wallsvg'))wall(t);if(on('pulsesvg'))pul(t);if(on('stsvg'))stairs(t);if(on('v1'))v1(dt);if(on('v2'))v2(dt,t);if(on('v3'))v3(dt,t);if(on('v4'))v4(dt,t);tick(dt)}
+    if(!still){if(on('traj'))traj(t);if(on('tailsvg'))tail(t);if(on('wallsvg'))wall(t);if(on('pulsesvg'))pul(t);if(on('stsvg'))stairs(t);if(on('v2'))v2(dt,t);if(on('v3'))v3(dt,t);if(on('v4'))v4(dt,t);tick(dt)}
     requestAnimationFrame(loop)}
   requestAnimationFrame(loop);
 
@@ -767,6 +768,37 @@ function draw(){x.clearRect(0,0,S,S);rr();x.fillStyle='#FF4D00';x.fill();x.fillS
 draw();if(still)return;
 setInterval(function(){a+=document.hidden?0.35:0.09;draw()},80);
 document.addEventListener('visibilitychange',function(){draw()});
+}catch(e){}})();
+</script>
+
+<script>
+/* Ролик «Хвост рынка»: тема сайта, автозапуск без звука в зоне видимости, пауза при «Движение: выкл» */
+(function(){try{
+var R=document.documentElement,v=document.getElementById('tfv'),card=document.getElementById('tailfilm');if(!v||!card)return;
+var bp=document.getElementById('tfp'),bs=document.getElementById('tfs'),bo=document.getElementById('tfo');
+var mq=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null,userStop=false,userPlay=false,inView=false,base='';
+var reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+var ext=(v.canPlayType&&v.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"'))?'.mp4':'.webm';
+function dark(){var t=R.getAttribute('data-theme');return t?t==='dark':!!(mq&&mq.matches)}
+function still(){return R.classList.contains('still')}
+function setSrc(){var b='video/tail-'+(dark()?'dark':'light');if(b===base)return;var tm=v.currentTime||0,pl=!v.paused;base=b;v.poster=b+'.jpg';
+  if(v.getAttribute('src')){v.src=b+ext;v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=tm}catch(e){}if(pl)v.play().catch(function(){})})}}
+function ensure(){if(!v.getAttribute('src')){v.preload='auto';v.src=base+ext}}
+function ui(){var on=!v.paused;card.classList.toggle('on',on);bp.setAttribute('aria-pressed',String(on));bp.lastChild.nodeValue=on?'Ролик: идет':'Ролик: пауза';
+  bs.setAttribute('aria-pressed',String(!v.muted));bs.lastChild.nodeValue='Звук: '+(v.muted?'выкл':'вкл')}
+function play(){ensure();var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;ui();v.play().catch(function(){})})}
+function auto(){if(inView&&!userStop&&(userPlay||(!still()&&!reduce))){if(v.paused)play()}else if(!v.paused&&(!inView||(still()&&!userPlay)))v.pause()}
+setSrc();
+if(mq&&mq.addEventListener)mq.addEventListener('change',setSrc);
+new MutationObserver(function(){setSrc();auto()}).observe(R,{attributes:true,attributeFilter:['data-theme','class']});
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){inView=e.isIntersecting&&e.intersectionRatio>=.45;if(e.isIntersecting&&!v.getAttribute('src'))v.preload='metadata';auto()})},{threshold:[0,.45,.7]}).observe(v)}
+function toggle(){if(v.paused){userStop=false;userPlay=true;play()}else{userStop=true;userPlay=false;v.pause()}}
+v.addEventListener('click',toggle);bp.addEventListener('click',toggle);
+bo.addEventListener('click',function(){userStop=false;userPlay=true;v.muted=false;play()});
+document.getElementById('tff').addEventListener('click',function(){ensure();var f=v.requestFullscreen||v.webkitRequestFullscreen;if(f){try{var r=f.call(v);r&&r.catch&&r.catch(function(){})}catch(e){}}else if(v.webkitEnterFullscreen){try{v.webkitEnterFullscreen()}catch(e){}}userStop=false;userPlay=true;play()});
+bs.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted&&v.paused){userStop=false;userPlay=true;play()}ui()});
+['play','pause','volumechange'].forEach(function(ev){v.addEventListener(ev,ui)});ui();
+document.addEventListener('visibilitychange',function(){if(document.hidden&&!v.paused)v.pause();else auto()});
 }catch(e){}})();
 </script>
 </body></html>
