@@ -259,6 +259,16 @@ button{font:inherit}
 .fv-play i{font-style:normal;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:12px;transition:transform .4s var(--ease-btn)}
 .fv-play:hover i{transform:rotate(-45deg)}
 .fv.on .fv-play{opacity:0;pointer-events:none}
+.fv-seek{display:flex;align-items:center;gap:14px;margin-top:-4px}
+.fv-t{font-family:var(--m);font-size:12px;letter-spacing:.06em;color:var(--mute);min-width:3.2em;font-variant-numeric:tabular-nums}
+.fv-t:last-child{text-align:right}
+.fv-tr{position:relative;flex:1;height:44px;cursor:pointer;touch-action:none;display:flex;align-items:center;outline:none}
+.fv-rail{position:relative;width:100%;height:4px;border-radius:999px;background:var(--line);overflow:hidden;transition:height .2s var(--ease-out)}
+.fv-rail i{position:absolute;inset:0 auto 0 0;width:0;background:#FF4D00;border-radius:999px}
+.fv-tr b{position:absolute;top:50%;left:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#FF4D00;box-shadow:0 0 0 4px color-mix(in srgb,#FF4D00 22%,transparent);transform:scale(.75);transition:transform .2s var(--ease-out)}
+.fv-tr:hover .fv-rail,.fv-tr.drag .fv-rail{height:6px}
+.fv-tr:hover b,.fv-tr.drag b,.fv-tr:focus-visible b{transform:scale(1)}
+.fv-tr:focus-visible .fv-rail{outline:3px solid var(--or);outline-offset:4px}
 @media (max-width:860px){.fv-h .l,.fv-h .r{grid-column:1/-1}}
 @media (max-width:460px){.fv-play{min-height:46px;padding-left:18px;font-size:14px}.fv-play i{width:30px;height:30px}}
 .mk-orb{transform-origin:60px 60px;animation:mk 9s linear infinite}@keyframes mk{to{transform:rotate(360deg)}}
@@ -390,7 +400,7 @@ button{font:inherit}
             <h3>Заходим в&nbsp;рынок с&nbsp;хвоста</h3>
           </div>
           <div class="r">
-            <p>Ядро рынка держат гиганты. Хвост им убыточен. AI-агенты делают хвост прибыльным, и&nbsp;оттуда проект растет к&nbsp;ядру.</p>
+            <p>Ядро держат лидеры рынка. С&nbsp;хвостом рынка они не&nbsp;работают: чек маленький, затраты на&nbsp;клиента высокие. AI-агенты делают хвост прибыльным, и&nbsp;оттуда проект растет к&nbsp;ядру.</p>
             <div class="fv-ctl">
               <button class="chip" id="tfp" type="button" aria-pressed="false"><i></i>Ролик: пауза</button>
               <button class="chip" id="tfs" type="button" aria-pressed="false"><i></i>Звук: выкл</button>
@@ -401,6 +411,11 @@ button{font:inherit}
         <div class="fv-v">
           <video id="tfv" muted playsinline loop preload="none" poster="video/tail-light.jpg" aria-label="Ролик: AI-стартап заходит в рынок с хвоста и движется к ядру"></video>
           <button class="fv-play" id="tfo" type="button">Смотреть ролик <i aria-hidden="true">▶</i></button>
+        </div>
+        <div class="fv-seek">
+          <span class="fv-t num" id="tfc">0:00</span>
+          <div class="fv-tr" id="tft" role="slider" tabindex="0" aria-label="Перемотка ролика" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" aria-valuetext="0:00"><div class="fv-rail"><i id="tfb"></i></div><b id="tfk"></b></div>
+          <span class="fv-t num" id="tfd">0:30</span>
         </div>
       </article>
     </div>
@@ -630,7 +645,7 @@ button{font:inherit}
   draw();
   var SIDE=[
     {t:'Проект до венчур-билдера',h:'Растет, пока конкуренты не догонят',l:['Растет линейно, как бизнес в одной локации','Временно держит отрыв от конкурентов','Ноль шансов за 2 года продать долю за $5M+ или стать покупкой лидера рынка за десятки миллионов долларов','Покрывает незначительную долю рынка','Работает без венчурного капитала']},
-    {t:'Проект вместе с венчур-билдером',h:'Получает партнера и AI-native процессы',l:['Партнера со 100% фокусом на привлечении венчурного капитала',{s:'AI-native процессы работы с инвесторами:',u:['автоматические рассылки трекшна инвесторам','проект в AngelList, PitchBook и десятках других баз','автопубликации, видео-презентации, анимации']}],g:true}];
+    {t:'Проект вместе с венчур-билдером',h:'Получает партнера и AI-native процессы',l:['100% фокус на привлечении венчурного капитала',{s:'AI-native процессы работы с инвесторами:',u:['автоматические рассылки трекшна инвесторам','проект в AngelList, PitchBook и десятках других баз','автопубликации, видео-презентации, анимации']}],g:true}];
   var side=$('side'),ba=$('ba'),cur=0,touched=false;
   function li(x){return typeof x==='string'?'<li>'+x+'</li>':'<li><span>'+x.s+'<ul>'+x.u.map(function(y){return '<li>'+y+'</li>'}).join('')+'</ul></span></li>'}
   function renderSide(v){var s=SIDE[v];side.innerHTML='<span class="t">'+s.t+'</span><h3>'+s.h+'</h3><ul>'+s.l.map(li).join('')+'</ul>'+(s.g?'<div class="goal"><span>Цель</span><b class="num">$300k+</b><span>раунд за 3–5 месяцев</span></div>':'');
@@ -778,12 +793,12 @@ var R=document.documentElement,v=document.getElementById('tfv'),card=document.ge
 var bp=document.getElementById('tfp'),bs=document.getElementById('tfs'),bo=document.getElementById('tfo');
 var mq=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null,userStop=false,userPlay=false,inView=false,base='';
 var reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
-var ext=(v.canPlayType&&v.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"'))?'.mp4':'.webm';
+var VER='?v=20261020',ext=(v.canPlayType&&v.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"'))?'.mp4':'.webm';
 function dark(){var t=R.getAttribute('data-theme');return t?t==='dark':!!(mq&&mq.matches)}
 function still(){return R.classList.contains('still')}
 function setSrc(){var b='video/tail-'+(dark()?'dark':'light');if(b===base)return;var tm=v.currentTime||0,pl=!v.paused;base=b;v.poster=b+'.jpg';
-  if(v.getAttribute('src')){v.src=b+ext;v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=tm}catch(e){}if(pl)v.play().catch(function(){})})}}
-function ensure(){if(!v.getAttribute('src')){v.preload='auto';v.src=base+ext}}
+  if(v.getAttribute('src')){v.src=b+ext+VER;v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=tm}catch(e){}if(pl)v.play().catch(function(){})})}}
+function ensure(){if(!v.getAttribute('src')){v.preload='auto';v.src=base+ext+VER}}
 function ui(){var on=!v.paused;card.classList.toggle('on',on);bp.setAttribute('aria-pressed',String(on));bp.lastChild.nodeValue=on?'Ролик: идет':'Ролик: пауза';
   bs.setAttribute('aria-pressed',String(!v.muted));bs.lastChild.nodeValue='Звук: '+(v.muted?'выкл':'вкл')}
 function play(){ensure();var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;ui();v.play().catch(function(){})})}
@@ -798,6 +813,23 @@ bo.addEventListener('click',function(){userStop=false;userPlay=true;v.muted=fals
 document.getElementById('tff').addEventListener('click',function(){ensure();var f=v.requestFullscreen||v.webkitRequestFullscreen;if(f){try{var r=f.call(v);r&&r.catch&&r.catch(function(){})}catch(e){}}else if(v.webkitEnterFullscreen){try{v.webkitEnterFullscreen()}catch(e){}}userStop=false;userPlay=true;play()});
 bs.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted&&v.paused){userStop=false;userPlay=true;play()}ui()});
 ['play','pause','volumechange'].forEach(function(ev){v.addEventListener(ev,ui)});ui();
+/* Перемотка: полоса под роликом, тянется мышью и пальцем, стрелки ±2 с */
+var tr=document.getElementById('tft'),tb=document.getElementById('tfb'),tk=document.getElementById('tfk'),tc=document.getElementById('tfc'),td=document.getElementById('tfd'),drag=false,wasPlay=false,raf=0,FD=29.6;
+function dur(){return isFinite(v.duration)&&v.duration>0?v.duration:FD}
+function fmt(x){x=Math.max(0,Math.floor(x));return Math.floor(x/60)+':'+String(x%60).padStart(2,'0')}
+function paint(x){var d=dur(),k=Math.max(0,Math.min(1,x/d));tb.style.width=(k*100)+'%';tk.style.left=(k*100)+'%';tc.textContent=fmt(x);tr.setAttribute('aria-valuenow',Math.round(x));tr.setAttribute('aria-valuetext',fmt(x))}
+function tick(){if(!drag)paint(v.currentTime||0);raf=v.paused?0:requestAnimationFrame(tick)}
+function loop(){if(!raf)raf=requestAnimationFrame(tick)}
+function seekTo(x){x=Math.max(0,Math.min(dur()-0.05,x));paint(x);if(!v.getAttribute('src')){ensure();v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=x}catch(e){}})}else{try{v.currentTime=x}catch(e){}}}
+function at(e){var r=tr.getBoundingClientRect();return (e.clientX-r.left)/r.width*dur()}
+tr.addEventListener('pointerdown',function(e){drag=true;wasPlay=!v.paused;tr.classList.add('drag');try{tr.setPointerCapture(e.pointerId)}catch(_){}if(wasPlay)v.pause();seekTo(at(e));e.preventDefault()});
+tr.addEventListener('pointermove',function(e){if(drag)seekTo(at(e))});
+function up(e){if(!drag)return;drag=false;tr.classList.remove('drag');seekTo(at(e));if(wasPlay){userStop=false;userPlay=true;play()}}
+tr.addEventListener('pointerup',up);tr.addEventListener('pointercancel',function(){drag=false;tr.classList.remove('drag')});
+tr.addEventListener('keydown',function(e){var k=e.key,x=v.currentTime||0;if(k==='ArrowRight'||k==='ArrowUp')seekTo(x+2);else if(k==='ArrowLeft'||k==='ArrowDown')seekTo(x-2);else if(k==='Home')seekTo(0);else if(k==='End')seekTo(dur());else if(k===' '||k==='Enter')toggle();else return;e.preventDefault()});
+v.addEventListener('loadedmetadata',function(){td.textContent=fmt(dur());tr.setAttribute('aria-valuemax',Math.round(dur()));paint(v.currentTime||0)});
+v.addEventListener('play',loop);v.addEventListener('seeked',function(){if(!drag)paint(v.currentTime||0)});v.addEventListener('timeupdate',function(){if(!drag&&v.paused)paint(v.currentTime||0)});
+paint(0);
 document.addEventListener('visibilitychange',function(){if(document.hidden&&!v.paused)v.pause();else auto()});
 }catch(e){}})();
 </script>
