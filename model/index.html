@@ -685,7 +685,10 @@ function toggle(){if(B[cur].end){playing=true;go(0);return}playing=!playing;if(p
 document.getElementById("play").addEventListener("click",toggle);
 document.getElementById("cap").addEventListener("click",function(){var w=document.getElementById("wrap"),on=w.classList.toggle("nocap");this.textContent=on?"≡":"⤢";this.setAttribute("aria-label",on?"Показать текст":"Увеличить ролик, скрыть текст");this.title=on?"Показать текст":"Увеличить ролик"});
 (function(){var mq=window.matchMedia("(orientation:landscape) and (max-height:520px)"),st=document.getElementById("stage");function fit(){st.setAttribute("viewBox",mq.matches?"26 20 1228 680":"0 0 1280 720")}fit();if(mq.addEventListener)mq.addEventListener("change",fit)})();
-document.getElementById("rotno").addEventListener("click",function(){document.documentElement.classList.add("vert")});
+var ROT=window.matchMedia("(orientation:portrait) and (max-width:600px)"),rotWait=false;
+function rotStart(){if(!rotWait)return;rotWait=false;playing=true;go(0,true)}
+document.getElementById("rotno").addEventListener("click",function(){document.documentElement.classList.add("vert");rotStart()});
+function rotChk(){if(!ROT.matches)rotStart()}if(ROT.addEventListener)ROT.addEventListener("change",rotChk);else if(ROT.addListener)ROT.addListener(rotChk);window.addEventListener("orientationchange",function(){setTimeout(rotChk,300)});window.addEventListener("resize",rotChk);
 function prev(){var s=B[cur].s;playing=true;go(cur>sStart[s]?sStart[s]:sStart[Math.max(0,s-1)])}
 function next(){var s=B[cur].s;playing=true;go(s<NST-1?sStart[s+1]:B.length-1)}
 document.getElementById("prev").addEventListener("click",prev);document.getElementById("next").addEventListener("click",next);
@@ -698,7 +701,7 @@ function frame(t){var dt=Math.min(50,t-lastT);lastT=t;
     if(!reduce)updateFlows();drawProg();if(advAt!=null&&clock>=advAt){advAt=null;if(cur<B.length-1)runBeat(cur+1,true)}}
   requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
-go(0,true);
+if(ROT.matches){rotWait=true;playing=false;go(0,false)}else go(0,true);
 window.__VB={R:R,calc:calc,B:B,SC:SC};window.__go=function(i){go(i,false)};
 })();
 </script>
