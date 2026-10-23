@@ -673,11 +673,12 @@ function runBeat(i,anim){cur=i;var b=B[i],a=anim&&!reduce,ch=a&&i===sStart[b.s]&
   var txt=b.t(),D=Math.max(5200,2400+txt.length*40)*(b.dur||1),pre=ch?2150:0;
   if(ch){svg.classList.add("instant");ovOnly(null);svg.getBoundingClientRect();svg.classList.remove("instant");document.getElementById("chapK").textContent=(b.s+1)+" / "+NST;document.getElementById("chapT").textContent=CH[b.s];chapEl.classList.add("show");later(1700,function(){chapEl.classList.remove("show")});beatAnim=true;later(pre,function(){b.f(true,D)})}
   else{beatAnim=a;b.f(a,D)}
-  under.innerHTML=txt;beatStart=clock;advAt=(a&&!b.end)?clock+pre+D:null;segUpdate()}
+  under.innerHTML=txt;under.scrollTop=0;beatStart=clock;advAt=(a&&!b.end)?clock+pre+D:null;segUpdate()}
 function go(i,anim){i=Math.max(0,Math.min(B.length-1,i|0));chapEl.classList.remove("show");resetScene();svg.classList.add("instant");beatAnim=false;for(var k=0;k<i;k++)B[k].f(false,0);svg.getBoundingClientRect();svg.classList.remove("instant");runBeat(i,anim!==false&&playing)}
+var PHL=window.matchMedia("(orientation:landscape) and (max-height:520px)");
 var segWrap=document.getElementById("segs"),segEls=[];
 CH.forEach(function(c,s){var b=document.createElement("button");b.type="button";b.className="seg";b.setAttribute("aria-label",c);b.innerHTML="<i></i><span>"+c+"</span>";b.addEventListener("click",function(){playing=true;go(sStart[s])});segWrap.appendChild(b);segEls.push(b)});
-function drawProg(){var s=B[cur].s,fr=1;if(advAt!=null)fr=Math.max(0,Math.min(1,(clock-beatStart)/(advAt-beatStart)));var idx=0;for(var k=sStart[s];k<cur;k++)idx++;segEls[s].querySelector("i").style.setProperty("--p",((idx+fr)/sCount[s]*100).toFixed(1)+"%")}
+function drawProg(){var s=B[cur].s,fr=1;if(advAt!=null)fr=Math.max(0,Math.min(1,(clock-beatStart)/(advAt-beatStart)));if(advAt!=null&&PHL.matches){var ov=under.scrollHeight-under.clientHeight;if(ov>2)under.scrollTop=ov*Math.max(0,Math.min(1,(fr-.12)/.76))}var idx=0;for(var k=sStart[s];k<cur;k++)idx++;segEls[s].querySelector("i").style.setProperty("--p",((idx+fr)/sCount[s]*100).toFixed(1)+"%")}
 function segUpdate(){var s=B[cur].s;segEls.forEach(function(el,k){el.classList.toggle("done",k<s);el.classList.toggle("cur",k===s);if(k!==s)el.querySelector("i").style.setProperty("--p","0%")});drawProg();
   var end=B[cur].end;document.getElementById("pi").textContent=playing&&!end?"❚❚":(end?"↺":"▶");document.getElementById("pt").textContent=playing&&!end?"Пауза":(end?"Сначала":"Смотреть")}
 function toggle(){if(B[cur].end){playing=true;go(0);return}playing=!playing;if(playing&&advAt==null){runBeat(beatAnim?Math.min(cur+1,B.length-1):cur,true);return}segUpdate()}
